@@ -10,8 +10,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "formik": "^2.4.6",
+    "isotope-layout": "^3.0.6",
+    "jarallax": "^2.2.1",
+    "paroller.js": "^1.4.7",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-bootstrap": "^2.10.10",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.7.1",
+    "sass": "^1.89.2",
+    "splitting": "^1.1.0",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
