@@ -46,7 +46,7 @@ const Index2 = () => {
               <div className="gp-started-item">
                 <div
                   className="slide js-parallax"
-                  style={{ backgroundImage: "url(images/started_img5.jpg)" }}
+                  style={{ backgroundImage: "url(images/started_img_n3.jpg)" }}
                 />
                 <div className="container">
                   <div className="description align-left element-anim-1">
