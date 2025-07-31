@@ -5,31 +5,14 @@ import Layouts from "@/layouts/Layouts";
 const Contacts = () => {
   return (
     <Layouts>
-      {/* Section Started Inner */}
-      <section className="section kf-started-inner">
-        <div
-          className="kf-parallax-bg js-parallax"
-          style={{
-            backgroundImage: "url(images/menu_reservation_inner_bg.jpg)",
-          }}
-        />
-        <div className="container">
-          <h1
-            className="kf-h-title text-anim-1 scroll-animate"
-            data-splitting="chars"
-            data-animate="active"
-          >
-            Contact Us
-          </h1>
-        </div>
-      </section>
+     
       {/* Section Contacts Info */}
-      <section className="section kf-contacts-info">
+      <section className="section gp-contacts-info">
         <div className="container">
-          <div className="kf-contacts-items row">
+          <div className="gp-contacts-items row">
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 align-center">
               <div
-                className="kf-contacts-item element-anim-1 scroll-animate"
+                className="gp-contacts-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
                 <div className="image">
@@ -40,12 +23,10 @@ const Contacts = () => {
                   <h5 className="name">Main Location</h5>
                   <ul>
                     <li>
-                      55 Main Street, 2nd Block, <br />
-                      3rd Floor, New York
+                      No. 65, gp Mawatha, Colombo 07, Sri Lanka.
                     </li>
                     <li>
-                      394 Main Street, 2nd Block, <br />
-                      3rd Floor, USA
+                      No. 65, gp Mawatha, Colombo 07, Sri Lanka.
                     </li>
                   </ul>
                 </div>
@@ -53,7 +34,7 @@ const Contacts = () => {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 align-center">
               <div
-                className="kf-contacts-item element-anim-1 scroll-animate"
+                className="gp-contacts-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
                 <div className="image">
@@ -64,12 +45,12 @@ const Contacts = () => {
                   <h5 className="name">Email Address</h5>
                   <ul>
                     <li>
-                      supportkaffen@gmail.com <br />
-                      www.kaffeninfo.net
+                      info@grandpittu.lk <br />
+                      www.grandpittu.lk
                     </li>
                     <li>
-                      supportkaffen@gmail.com <br />
-                      www.kaffeninfo.net
+                      info@grandpittu.lk <br />
+                      www.grandpittu.lk
                     </li>
                   </ul>
                 </div>
@@ -77,7 +58,7 @@ const Contacts = () => {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 align-center">
               <div
-                className="kf-contacts-item element-anim-1 scroll-animate"
+                className="gp-contacts-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
                 <div className="image">
@@ -88,11 +69,11 @@ const Contacts = () => {
                   <h5 className="name">Phone Number</h5>
                   <ul>
                     <li>
-                      +012 (345) 678 99 <br />
+                      +9477 1465 896 <br />
                       123456780
                     </li>
                     <li>
-                      +012 (345) 678 99 <br />
+                      +9477 1465 896 <br />
                       123456780
                     </li>
                   </ul>
@@ -103,15 +84,15 @@ const Contacts = () => {
         </div>
       </section>
       {/* Section Contacts Form */}
-      <section className="section kf-contacts-form">
+      <section className="section gp-contacts-form">
         <div className="container">
           <div
-            className="kf-reservation-form element-anim-1 scroll-animate"
+            className="gp-reservation-form element-anim-1 scroll-animate"
             data-animate="active"
           >
-            <div className="kf-titles align-center">
-              <div className="kf-subtitle">Contact Us</div>
-              <h3 className="kf-title">Send Us Message</h3>
+            <div className="gp-titles align-center">
+              <div className="gp-subtitle">Contact Us</div>
+              <h3 className="gp-title">Send Us Message</h3>
             </div>
             <ContactForm />
           </div>
@@ -119,73 +100,7 @@ const Contacts = () => {
       </section>
       {/* Section Insta Carousel */}
       <InstaCarousel />
-      {/* Section Brands */}
-      <div className="section kf-brands">
-        <div className="container">
-          <div className="kf-brands-items row">
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="kf-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand1.png" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="kf-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand2.png" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="kf-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand3.png" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="kf-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand4.png" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="kf-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand5.png" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="kf-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand6.png" alt="image" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </Layouts>
   );
 };

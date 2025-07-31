@@ -8,11 +8,11 @@ const CoffeeMenu = () => {
   useEffect(() => {
     setTimeout(() => {
       isotope.current = new Isotope(".all-menu-items", {
-        itemSelector: ".kf-menu-item-col",
+        itemSelector: ".gp-menu-item-col",
         //    layoutMode: "fitRows",
         percentPosition: true,
         masonry: {
-          columnWidth: ".kf-menu-item-col",
+          columnWidth: ".gp-menu-item-col",
         },
         animationOptions: {
           duration: 750,
@@ -32,7 +32,7 @@ const CoffeeMenu = () => {
   }, [filterKey]);
   const handleFilterKeyChange = (key) => () => {
     setFilterKey(key);
-    const filterLinks = document.querySelectorAll(".kf-filter-menu a");
+    const filterLinks = document.querySelectorAll(".gp-filter-menu a");
     filterLinks.forEach((filter) => {
       const filterValue = filter.getAttribute("data-href");
       if (filterValue == key) {
@@ -43,24 +43,24 @@ const CoffeeMenu = () => {
     });
   };
   return (
-    <section className="section kf-menu kf-menu-tabs">
+    <section className="section gp-menu gp-menu-tabs">
       <div className="container">
-        <div className="kf-titles align-center">
+        <div className="gp-titles align-center">
           <div
-            className="kf-subtitle element-anim-1 scroll-animate"
+            className="gp-subtitle element-anim-1 scroll-animate"
             data-animate="active"
           >
             Choose Best of
           </div>
           <h3
-            className="kf-title element-anim-1 scroll-animate"
+            className="gp-title element-anim-1 scroll-animate"
             data-animate="active"
           >
-            Kaffen Coffee Menu
+            Grandpittu Coffee Menu
           </h3>
         </div>
         <div
-          className="kf-filter kf-filter-menu element-anim-1 scroll-animate"
+          className="gp-filter gp-filter-menu element-anim-1 scroll-animate"
           data-animate="active"
         >
           <a
@@ -93,16 +93,16 @@ const CoffeeMenu = () => {
           </a>
         </div>
         <div
-          className="kf-menu-items"
+          className="gp-menu-items"
           style={{ backgroundImage: "url(images/menu_logo.png)" }}
         >
           <div className="row all-menu-items">
-            <div className="kf-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all hot-coffee">
+            <div className="gp-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all hot-coffee">
               <div
-                className="kf-menu-item element-anim-1 scroll-animate"
+                className="gp-menu-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
-                <div className="image kf-image-hover">
+                <div className="image gp-image-hover">
                   <a href="images/menu1.jpg" className="has-popup-image">
                     <img src="images/menu1.jpg" alt="image" />
                   </a>
@@ -114,12 +114,12 @@ const CoffeeMenu = () => {
                 </div>
               </div>
             </div>
-            <div className="kf-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all hot-coffee">
+            <div className="gp-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all hot-coffee">
               <div
-                className="kf-menu-item element-anim-1 scroll-animate"
+                className="gp-menu-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
-                <div className="image kf-image-hover">
+                <div className="image gp-image-hover">
                   <a href="images/menu2.jpg" className="has-popup-image">
                     <img src="images/menu2.jpg" alt="image" />
                   </a>
@@ -131,12 +131,12 @@ const CoffeeMenu = () => {
                 </div>
               </div>
             </div>
-            <div className="kf-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all dessert">
+            <div className="gp-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all dessert">
               <div
-                className="kf-menu-item element-anim-1 scroll-animate"
+                className="gp-menu-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
-                <div className="image kf-image-hover">
+                <div className="image gp-image-hover">
                   <a href="images/menu3.jpg" className="has-popup-image">
                     <img src="images/menu3.jpg" alt="image" />
                   </a>
@@ -148,12 +148,12 @@ const CoffeeMenu = () => {
                 </div>
               </div>
             </div>
-            <div className="kf-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all hot-coffee">
+            <div className="gp-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all hot-coffee">
               <div
-                className="kf-menu-item element-anim-1 scroll-animate"
+                className="gp-menu-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
-                <div className="image kf-image-hover">
+                <div className="image gp-image-hover">
                   <a href="images/menu4.jpg" className="has-popup-image">
                     <img src="images/menu4.jpg" alt="image" />
                   </a>
@@ -165,12 +165,12 @@ const CoffeeMenu = () => {
                 </div>
               </div>
             </div>
-            <div className="kf-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all dessert">
+            <div className="gp-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all dessert">
               <div
-                className="kf-menu-item element-anim-1 scroll-animate"
+                className="gp-menu-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
-                <div className="image kf-image-hover">
+                <div className="image gp-image-hover">
                   <a href="images/menu5.jpg" className="has-popup-image">
                     <img src="images/menu5.jpg" alt="image" />
                   </a>
@@ -182,12 +182,12 @@ const CoffeeMenu = () => {
                 </div>
               </div>
             </div>
-            <div className="kf-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all dessert">
+            <div className="gp-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all dessert">
               <div
-                className="kf-menu-item element-anim-1 scroll-animate"
+                className="gp-menu-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
-                <div className="image kf-image-hover">
+                <div className="image gp-image-hover">
                   <a href="images/menu6.jpg" className="has-popup-image">
                     <img src="images/menu6.jpg" alt="image" />
                   </a>
@@ -199,12 +199,12 @@ const CoffeeMenu = () => {
                 </div>
               </div>
             </div>
-            <div className="kf-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all fast-food">
+            <div className="gp-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all fast-food">
               <div
-                className="kf-menu-item element-anim-1 scroll-animate"
+                className="gp-menu-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
-                <div className="image kf-image-hover">
+                <div className="image gp-image-hover">
                   <a href="images/ins_gal1.jpg" className="has-popup-image">
                     <img src="images/ins_gal1.jpg" alt="image" />
                   </a>
@@ -218,12 +218,12 @@ const CoffeeMenu = () => {
                 </div>
               </div>
             </div>
-            <div className="kf-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all fast-food">
+            <div className="gp-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all fast-food">
               <div
-                className="kf-menu-item element-anim-1 scroll-animate"
+                className="gp-menu-item element-anim-1 scroll-animate"
                 data-animate="active"
               >
-                <div className="image kf-image-hover">
+                <div className="image gp-image-hover">
                   <a href="images/ins_gal3.jpg" className="has-popup-image">
                     <img src="images/ins_gal3.jpg" alt="image" />
                   </a>

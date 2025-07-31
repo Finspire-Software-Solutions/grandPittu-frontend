@@ -81,7 +81,7 @@ const ReservationForm = () => {
 
             <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div className="kf-field">
+                <div className="gp-field">
                   <input
                     type="text" 
                     placeholder="Full Name"
@@ -95,7 +95,7 @@ const ReservationForm = () => {
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div className="kf-field">
+                <div className="gp-field">
                   <input
                     type="email" 
                     placeholder="Email Address"
@@ -109,7 +109,7 @@ const ReservationForm = () => {
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div className="kf-field">
+                <div className="gp-field">
                   <input 
                     type="tel" 
                     name="tel" 
@@ -123,22 +123,21 @@ const ReservationForm = () => {
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div className="kf-field">
-                  <select 
-                    name="persons"
-                    value={values.persons}
+                <div className="gp-field">
+                  <input 
+                    type="number" 
+                    name="persons" 
+                    placeholder="Number of Persons"
+                    required="required"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                  >
-                    <option value="1" selected>1 Person</option>
-                    <option value="2">2 Persons</option>
-                    <option value="3">3 Persons</option>
-                    <option value="4">4 Persons</option>
-                  </select>
+                    value={values.persons}
+                  />
+                  
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div className="kf-field">
+                <div className="gp-field">
                   <input 
                     type="date" 
                     name="date" 
@@ -147,28 +146,27 @@ const ReservationForm = () => {
                     onBlur={handleBlur}
                     value={values.date}
                   />
-                  <i className="far fa-calendar-alt" />
+                  
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <div className="kf-field">
+                <div className="gp-field">
                   <input 
-                    type="text" 
+                    type="time" 
                     name="time" 
-                    placeholder="Time" 
                     required="required"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.time}
                   />
-                  <i className="far fa-clock" />{" "}
+                  <i className="far fa-clock" />
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div className="kf-bts">
+                <div className="gp-bts">
                   <button
                     type="submit"
-                    className="kf-btn"
+                    className="gp-btn"
                   >
                     <span>booking table</span>
                     <i className="fas fa-chevron-right" />

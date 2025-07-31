@@ -79,7 +79,7 @@ const ContactForm = () => {
         <form onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
           <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                <div className="kf-field">
+                <div className="gp-field">
                   <input 
                     type="text" 
                     name="name" 
@@ -93,7 +93,7 @@ const ContactForm = () => {
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                <div className="kf-field">
+                <div className="gp-field">
                   <input
                     type="email"
                     name="email"
@@ -107,7 +107,7 @@ const ContactForm = () => {
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
-                <div className="kf-field">
+                <div className="gp-field">
                   <input 
                     type="tel" 
                     name="tel" 
@@ -121,7 +121,7 @@ const ContactForm = () => {
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div className="kf-field">
+                <div className="gp-field">
                   <input 
                     type="text" 
                     name="subject" 
@@ -134,7 +134,7 @@ const ContactForm = () => {
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div className="kf-field">
+                <div className="gp-field">
                   <textarea
                     name="message"
                     placeholder="Message"
@@ -147,10 +147,10 @@ const ContactForm = () => {
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div className="kf-bts">
+                <div className="gp-bts">
                   <button
                     type="submit"
-                    className="kf-btn"
+                    className="gp-btn"
                   >
                     <span>Send us message</span>
                     <i className="fas fa-chevron-right" />

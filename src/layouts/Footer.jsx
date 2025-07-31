@@ -1,12 +1,12 @@
 const Footer = () => {
   return (
-    <div className="kf-footer">
+    <div className="gp-footer">
       <div className="container">
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
             {/* logo */}
             <div
-              className="kf-logo element-anim-1 scroll-animate"
+              className="spinner-logo element-anim-1 scroll-animate"
               data-animate="active"
             >
               <a href="index.html">
@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
             {/* hours */}
             <div
-              className="kf-f-hours element-anim-1 scroll-animate"
+              className="gp-f-hours element-anim-1 scroll-animate"
               data-animate="active"
             >
               <h5>Working Hours</h5>
@@ -30,16 +30,14 @@ const Footer = () => {
                   Only Friday
                   <em>03:00 pm - 09:00pm</em>
                 </li>
-                <li>
-                  <strong>Saturday Close</strong>
-                </li>
+                
               </ul>
             </div>
           </div>
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
             {/* contact */}
             <div
-              className="kf-f-contact element-anim-1 scroll-animate"
+              className="gp-f-contact element-anim-1 scroll-animate"
               data-animate="active"
             >
               <h5>Contact Us</h5>
@@ -47,17 +45,17 @@ const Footer = () => {
                 <li>
                   <i className="las la-map-marker" />
                   <em>Location :</em>
-                  55 Main Street, New York
+                  No. 65, gp Mawatha, Colombo 07, Sri Lanka.
                 </li>
                 <li>
                   <i className="las la-envelope-open-text" />
                   <em>Email Address :</em>
-                  kaffendev@gmail.com
+                  info@grandpittu.lk
                 </li>
                 <li>
                   <i className="las la-phone" />
                   <em>Phone Number :</em>
-                  +012 (345) 678 99
+                  +9477 1465 896
                 </li>
               </ul>
             </div>
@@ -65,7 +63,7 @@ const Footer = () => {
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
             {/* gallery */}
             <div
-              className="kf-f-gallery element-anim-1 scroll-animate"
+              className="gp-f-gallery element-anim-1 scroll-animate"
               data-animate="active"
             >
               <h5>Gallery</h5>
@@ -73,7 +71,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="images/grid_gal1.jpg"
-                    className="kf-image-hover has-popup-image"
+                    className="gp-image-hover has-popup-image"
                   >
                     <img src="images/grid_gal1.jpg" alt="image" />
                   </a>
@@ -81,7 +79,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="images/grid_gal2.jpg"
-                    className="kf-image-hover has-popup-image"
+                    className="gp-image-hover has-popup-image"
                   >
                     <img src="images/grid_gal2.jpg" alt="image" />
                   </a>
@@ -89,7 +87,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="images/grid_gal3.jpg"
-                    className="kf-image-hover has-popup-image"
+                    className="gp-image-hover has-popup-image"
                   >
                     <img src="images/grid_gal3.jpg" alt="image" />
                   </a>
@@ -97,7 +95,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="images/grid_gal4.jpg"
-                    className="kf-image-hover has-popup-image"
+                    className="gp-image-hover has-popup-image"
                   >
                     <img src="images/grid_gal4.jpg" alt="image" />
                   </a>
@@ -105,7 +103,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="images/grid_gal5.jpg"
-                    className="kf-image-hover has-popup-image"
+                    className="gp-image-hover has-popup-image"
                   >
                     <img src="images/grid_gal5.jpg" alt="image" />
                   </a>
@@ -113,7 +111,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="images/grid_gal6.jpg"
-                    className="kf-image-hover has-popup-image"
+                    className="gp-image-hover has-popup-image"
                   >
                     <img src="images/grid_gal1.jpg" alt="image" />
                   </a>
@@ -126,10 +124,10 @@ const Footer = () => {
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 align-center">
             {/* copyright */}
             <div
-              className="kf-copyright element-anim-1 scroll-animate"
+              className="gp-copyright element-anim-1 scroll-animate"
               data-animate="active"
             >
-              Copyright © 2022 Kaffen. All Rights Reserved.
+              Copyright © 2025 Grandpittu. All Rights Reserved.
             </div>
           </div>
         </div>

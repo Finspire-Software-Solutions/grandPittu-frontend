@@ -4,10 +4,10 @@ const ReservationSection = () => {
   return (
     <>
     {/* Section Reservation */}
-    <section className="section kf-reservation kf-section-no-margin">
+    <section className="section gp-reservation gp-section-no-margin">
       <div className="container">
         <div
-          className="kf-reservation-form element-anim-1 scroll-animate"
+          className="gp-reservation-form element-anim-1 scroll-animate"
           data-animate="active"
         >
           <div
@@ -18,9 +18,9 @@ const ReservationSection = () => {
             className="image-right"
             style={{ backgroundImage: "url(images/reservation6.jpg)" }}
           />
-          <div className="kf-titles align-center">
-            <div className="kf-subtitle">Booking Table</div>
-            <h3 className="kf-title">Make Your Reservation</h3>
+          <div className="gp-titles align-center">
+            <div className="gp-subtitle">Booking Table</div>
+            <h3 className="gp-title">Make Your Reservation</h3>
           </div>
           <ReservationForm />
         </div>

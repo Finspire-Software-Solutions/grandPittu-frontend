@@ -117,11 +117,12 @@ h5,
 h6,
 .content-sidebar h2 {
 	font-weight: 400;
-	font-family: "Oswald";
+	 font-family: "Redressed", cursive;
+  
 	margin: 0;
 	margin-top: 30px;
 	margin-bottom: 30px;
-	color: #FFF;
+	color: #B8860B;
 	line-height: 1.3;
 }
 
@@ -179,8 +180,8 @@ strong {
 	}
 }
 
-a.kf-lnk,
-.kf-lnk {
+a.gp-lnk,
+.gp-lnk {
 	display: inline-block;
 	vertical-align: top;
 	font-size: 18px;
@@ -191,10 +192,10 @@ a.kf-lnk,
 	-webkit-transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);
 }
 
-a.kf-btn,
-.kf-btn,
-a.kf-btn-link,
-.kf-btn-link,
+a.gp-btn,
+.gp-btn,
+a.gp-btn-link,
+.gp-btn-link,
 button,
 input[type="submit"] {
 	padding: 0 32px;
@@ -211,7 +212,7 @@ input[type="submit"] {
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
-	background: #b99272;
+	background: #040707;
 	border: none;
 	outline: none !important;
 	-webkit-box-shadow: none !important;
@@ -234,12 +235,12 @@ input[type="submit"] {
 		position: relative;
 	}
 	&.dark-btn {
-		background: #0e1317;
+		background: #040707;
 	}
 }
 
-a.kf-btn:before,
-.kf-btn:before,
+a.gp-btn:before,
+.gp-btn:before,
 button:before {
 	content: '';
 	position: absolute;
@@ -254,20 +255,20 @@ button:before {
 	-webkit-transform: translate3d(0, -100%, 0) skew(-10deg, -10deg);
 }
 
-a.kf-btn:hover,
-.kf-btn:hover {
+a.gp-btn:hover,
+.gp-btn:hover {
 	color: $base_link_color;
 }
 
-a.kf-btn:hover:before,
-.kf-btn:hover:before {
+a.gp-btn:hover:before,
+.gp-btn:hover:before {
 	top: -20%;
 	transform: translate3d(0, 0, 0) skew(0deg);
 	-webkit-transform: translate3d(0, 0, 0) skew(0deg);
 }
 
-a.kf-btn-link,
-.kf-btn-link {
+a.gp-btn-link,
+.gp-btn-link {
 	padding: 0;
 	height: auto;
 	line-height: 1.2;
@@ -307,8 +308,8 @@ a.kf-btn-link,
 }
 
 @media screen and (max-width: 767px) {
-	a.kf-btn,
-	.kf-btn,
+	a.gp-btn,
+	.gp-btn,
 	button,
 	input[type="submit"] {
 		padding: 0 20px;
@@ -505,7 +506,7 @@ blockquote {
 	font-size: 24px;
 	color: #fff;
 	font-weight: 300;
-	background: #090c0f;
+	background: #601013;
 }
 
 .block-quote p,
@@ -791,7 +792,7 @@ hr {
 	top: -20vh;
 	width: 140vw;
 	height: 120vh;
-	background: #090c0f;
+	background: #601013;
 }
 
 .preloader .spinner-logo {

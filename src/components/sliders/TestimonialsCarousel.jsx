@@ -1,193 +1,144 @@
 import { sliderProps } from "@/utils/sliderProps";import { Swiper, SwiperSlide } from "swiper/react";
 const TestimonialsCarousel = () => {
   return (
-    <section
-      className="section kf-testimonials kf-testimonials-2 section-bg"
-      style={{ backgroundImage: "url(images/testimonials_bg2.jpeg)" }}
-    >
+    <section className="section gp-testimonials section-bg">
+   
       <div className="container">
-        <div className="kf-titles align-center">
-          <div
-            className="kf-subtitle element-anim-1 scroll-animate"
-            data-animate="active"
-          >
-            Customer Feedback
-          </div>
-          <h3
-            className="kf-title element-anim-1 scroll-animate"
-            data-animate="active"
-          >
-            What Our Clients Say
+        <div className="gp-titles align-center">
+          <h3 className="gp-title element-anim-1 scroll-animate" data-animate="active">
+            What Our Customers Say
           </h3>
         </div>
-        <div className="kf-testimonials-carousel">
-          <Swiper
-            {...sliderProps.kfTestimonialsCarousel}
-            className="swiper-container"
-          >
+        <div className="gp-google-reviews-carousel">
+          <Swiper {...sliderProps.gpTestimonialsCarousel} className="swiper-container">
             <div className="swiper-wrapper">
               <SwiperSlide className="swiper-slide">
-                <div
-                  className="slide-item element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image">
-                    <img src="images/rev1.jpg" alt="image" />
+                <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
+                  <div className="google-review-header">
+                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <div className="google-review-info">
+                      <span className="google-review-name">Arun S.</span>
+                      <span className="google-review-date">July 2025</span>
+                    </div>
+                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
                   </div>
-                  <div className="desc">
-                    <div className="stars">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <div className="text">
-                      Sed ut perspiciatis unde omnis natus error luptatem
-                      accusantium doloremque laudantium totam remriam eaque quae
-                      abillo
-                    </div>
-                    <h5 className="name">
-                      Frederick S. France <em>Web Deigner</em>
-                    </h5>
+                  <div className="google-review-stars">
+                    {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
+                  </div>
+                  <div className="google-review-text">
+                    "Authentic Jaffna flavors! The Pittu and Crab Curry reminded me of home. Friendly staff and cozy atmosphere. Highly recommended."
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="swiper-slide">
-                <div
-                  className="slide-item element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image">
-                    <img src="images/rev2.jpg" alt="image" />
+                <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
+                  <div className="google-review-header">
+                    <img src="images/rev2.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <div className="google-review-info">
+                      <span className="google-review-name">Niranjani T.</span>
+                      <span className="google-review-date">June 2025</span>
+                    </div>
+                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
                   </div>
-                  <div className="desc">
-                    <div className="stars">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <div className="text">
-                      Sed ut perspiciatis unde omnis natus error luptatem
-                      accusantium doloremque laudantium totam remriam eaque quae
-                      abillo
-                    </div>
-                    <h5 className="name">
-                      James M. London <em>Lawyer</em>
-                    </h5>
+                  <div className="google-review-stars">
+                    {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
+                  </div>
+                  <div className="google-review-text">
+                    "A must-visit for anyone craving Sri Lankan Tamil cuisine. The service was excellent and the food was bursting with flavor!"
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="swiper-slide">
-                <div
-                  className="slide-item element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image">
-                    <img src="images/rev3.jpg" alt="image" />
+                <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
+                  <div className="google-review-header">
+                    <img src="images/rev3.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <div className="google-review-info">
+                      <span className="google-review-name">Ramesh K.</span>
+                      <span className="google-review-date">May 2025</span>
+                    </div>
+                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
                   </div>
-                  <div className="desc">
-                    <div className="stars">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <div className="kf-text">
-                      Sed ut perspiciatis unde omnis natus error luptatem
-                      accusantium doloremque laudantium totam remriam eaque quae
-                      abillo
-                    </div>
-                    <h5 className="name">
-                      Olivia D. New York <em>Dentist</em>
-                    </h5>
+                  <div className="google-review-stars">
+                    {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
+                  </div>
+                  <div className="google-review-text">
+                    "Loved the herbal juices and fresh produce. The chefs truly know how to bring out the best in Tamil recipes!"
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="swiper-slide">
-                <div
-                  className="slide-item element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image">
-                    <img src="images/rev1.jpg" alt="image" />
+                <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
+                  <div className="google-review-header">
+                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <div className="google-review-info">
+                      <span className="google-review-name">Arun S.</span>
+                      <span className="google-review-date">July 2025</span>
+                    </div>
+                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
                   </div>
-                  <div className="desc">
-                    <div className="stars">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <div className="kf-text">
-                      Sed ut perspiciatis unde omnis natus error luptatem
-                      accusantium doloremque laudantium totam remriam eaque quae
-                      abillo
-                    </div>
-                    <h5 className="name">
-                      Frederick S. France <em>Web Deigner</em>
-                    </h5>
+                  <div className="google-review-stars">
+                    {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
+                  </div>
+                  <div className="google-review-text">
+                    "Authentic Jaffna flavors! The Pittu and Crab Curry reminded me of home. Friendly staff and cozy atmosphere. Highly recommended."
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="swiper-slide">
-                <div
-                  className="slide-item element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image">
-                    <img src="images/rev2.jpg" alt="image" />
+                <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
+                  <div className="google-review-header">
+                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <div className="google-review-info">
+                      <span className="google-review-name">Arun S.</span>
+                      <span className="google-review-date">July 2025</span>
+                    </div>
+                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
                   </div>
-                  <div className="desc">
-                    <div className="stars">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <div className="kf-text">
-                      Sed ut perspiciatis unde omnis natus error luptatem
-                      accusantium doloremque laudantium totam remriam eaque quae
-                      abillo
-                    </div>
-                    <h5 className="name">
-                      James M. London <em>Lawyer</em>
-                    </h5>
+                  <div className="google-review-stars">
+                    {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
+                  </div>
+                  <div className="google-review-text">
+                    "Authentic Jaffna flavors! The Pittu and Crab Curry reminded me of home. Friendly staff and cozy atmosphere. Highly recommended."
                   </div>
                 </div>
               </SwiperSlide>
               <SwiperSlide className="swiper-slide">
-                <div
-                  className="slide-item element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image">
-                    <img src="images/rev3.jpg" alt="image" />
+                <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
+                  <div className="google-review-header">
+                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <div className="google-review-info">
+                      <span className="google-review-name">Arun S.</span>
+                      <span className="google-review-date">July 2025</span>
+                    </div>
+                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
                   </div>
-                  <div className="desc">
-                    <div className="stars">
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                      <i className="fas fa-star" />
-                    </div>
-                    <div className="kf-text">
-                      Sed ut perspiciatis unde omnis natus error luptatem
-                      accusantium doloremque laudantium totam remriam eaque quae
-                      abillo
-                    </div>
-                    <h5 className="name">
-                      Olivia D. New York <em>Dentist</em>
-                    </h5>
+                  <div className="google-review-stars">
+                    {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
+                  </div>
+                  <div className="google-review-text">
+                    "Authentic Jaffna flavors! The Pittu and Crab Curry reminded me of home. Friendly staff and cozy atmosphere. Highly recommended."
                   </div>
                 </div>
               </SwiperSlide>
+              <SwiperSlide className="swiper-slide">
+                <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
+                  <div className="google-review-header">
+                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <div className="google-review-info">
+                      <span className="google-review-name">Arun S.</span>
+                      <span className="google-review-date">July 2025</span>
+                    </div>
+                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
+                  </div>
+                  <div className="google-review-stars">
+                    {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
+                  </div>
+                  <div className="google-review-text">
+                    "Authentic Jaffna flavors! The Pittu and Crab Curry reminded me of home. Friendly staff and cozy atmosphere. Highly recommended."
+                  </div>
+                </div>
+              </SwiperSlide>
+              
             </div>
             <div className="swiper-pagination" />
           </Swiper>
@@ -195,5 +146,6 @@ const TestimonialsCarousel = () => {
       </div>
     </section>
   );
-};
+}
+
 export default TestimonialsCarousel;

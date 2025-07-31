@@ -53,7 +53,7 @@ export const sliderProps = {
       },
     },
   },
-  kfGridCarousel: {
+  gpGridCarousel: {
     slidesPerView: 3,
     spaceBetween: 30,
     loop: true,
@@ -76,7 +76,7 @@ export const sliderProps = {
       },
     },
   },
-  kfTestimonialsCarousel: {
+  gpTestimonialsCarousel: {
     slidesPerView: 4,
     spaceBetween: 30,
     loop: false,
@@ -103,7 +103,7 @@ export const sliderProps = {
       },
     },
   },
-  kfInstaCarousel: {
+  gpInstaCarousel: {
     slidesPerView: 3,
     spaceBetween: 0,
     loop: true,
@@ -126,7 +126,7 @@ export const sliderProps = {
       },
     },
   },
-  kfHistory: {
+  gpHistory: {
     slidesPerView: 1,
     spaceBetween: 70,
     loop: false,

@@ -7,12 +7,12 @@ const PhotoGalleryIsotope = () => {
   const [filterKey, setFilterKey] = useState("*");
   useEffect(() => {
     setTimeout(() => {
-      isotope.current = new Isotope(".kf-gallery-items", {
-        itemSelector: ".kf-gallery-col",
+      isotope.current = new Isotope(".gp-gallery-items", {
+        itemSelector: ".gp-gallery-col",
         //    layoutMode: "fitRows",
         percentPosition: true,
         masonry: {
-          columnWidth: ".kf-gallery-col",
+          columnWidth: ".gp-gallery-col",
         },
         animationOptions: {
           duration: 750,
@@ -32,7 +32,7 @@ const PhotoGalleryIsotope = () => {
   }, [filterKey]);
   const handleFilterKeyChange = (key) => () => {
     setFilterKey(key);
-    const filterLinks = document.querySelectorAll(".kf-filter a");
+    const filterLinks = document.querySelectorAll(".gp-filter a");
     filterLinks.forEach((filter) => {
       const filterValue = filter.getAttribute("data-href");
       if (filterValue == key) {
@@ -43,24 +43,24 @@ const PhotoGalleryIsotope = () => {
     });
   };
   return (
-    <section className="section kf-gallery">
+    <section className="section gp-gallery">
       <div className="container">
-        <div className="kf-titles align-center">
+        <div className="gp-titles align-center">
           <div
-            className="kf-subtitle element-anim-1 scroll-animate"
+            className="gp-subtitle element-anim-1 scroll-animate"
             data-animate="active"
           >
             Our Photo Gallery
           </div>
           <h3
-            className="kf-title element-anim-1 scroll-animate"
+            className="gp-title element-anim-1 scroll-animate"
             data-animate="active"
           >
             Looks Our Photo Gallery
           </h3>
         </div>
         <div
-          className="kf-filter kf-filter-gal element-anim-1 scroll-animate"
+          className="gp-filter gp-filter-gal element-anim-1 scroll-animate"
           data-animate="active"
         >
           <button
@@ -109,13 +109,13 @@ const PhotoGalleryIsotope = () => {
             Special pizza
           </button>
         </div>
-        <div className="kf-gallery-items row">
-          <div className="kf-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all fast-food">
+        <div className="gp-gallery-items row">
+          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all fast-food">
             <div
-              className="kf-gallery-item element-anim-1 scroll-animate"
+              className="gp-gallery-item element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <div className="image kf-image-hover">
+              <div className="image gp-image-hover">
                 <a href="images/ins_gal1.jpg" className="has-popup-gallery">
                   <img src="images/ins_gal1.jpg" alt="Italian burger" />
                 </a>
@@ -130,12 +130,12 @@ const PhotoGalleryIsotope = () => {
               </div>
             </div>
           </div>
-          <div className="kf-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all dinner-menu">
+          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all dinner-menu">
             <div
-              className="kf-gallery-item element-anim-1 scroll-animate"
+              className="gp-gallery-item element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <div className="image kf-image-hover">
+              <div className="image gp-image-hover">
                 <a href="images/ins_gal2.jpg" className="has-popup-gallery">
                   <img src="images/ins_gal2.jpg" alt="Italian pasta" />
                 </a>
@@ -150,12 +150,12 @@ const PhotoGalleryIsotope = () => {
               </div>
             </div>
           </div>
-          <div className="kf-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all fast-food">
+          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all fast-food">
             <div
-              className="kf-gallery-item element-anim-1 scroll-animate"
+              className="gp-gallery-item element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <div className="image kf-image-hover">
+              <div className="image gp-image-hover">
                 <a href="images/ins_gal3.jpg" className="has-popup-gallery">
                   <img src="images/ins_gal3.jpg" alt="Chicken burger" />
                 </a>
@@ -170,12 +170,12 @@ const PhotoGalleryIsotope = () => {
               </div>
             </div>
           </div>
-          <div className="kf-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all special-pizza">
+          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all special-pizza">
             <div
-              className="kf-gallery-item element-anim-1 scroll-animate"
+              className="gp-gallery-item element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <div className="image kf-image-hover">
+              <div className="image gp-image-hover">
                 <a href="images/ins_gal4.jpg" className="has-popup-gallery">
                   <img src="images/ins_gal4.jpg" alt="Italian pizza" />
                 </a>
@@ -190,12 +190,12 @@ const PhotoGalleryIsotope = () => {
               </div>
             </div>
           </div>
-          <div className="kf-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all hot-coffee">
+          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all hot-coffee">
             <div
-              className="kf-gallery-item element-anim-1 scroll-animate"
+              className="gp-gallery-item element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <div className="image kf-image-hover">
+              <div className="image gp-image-hover">
                 <a href="images/ins_gal5.jpg" className="has-popup-gallery">
                   <img src="images/ins_gal5.jpg" alt="Cappuccino" />
                 </a>
@@ -210,12 +210,12 @@ const PhotoGalleryIsotope = () => {
               </div>
             </div>
           </div>
-          <div className="kf-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all fast-food">
+          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all fast-food">
             <div
-              className="kf-gallery-item element-anim-1 scroll-animate"
+              className="gp-gallery-item element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <div className="image kf-image-hover">
+              <div className="image gp-image-hover">
                 <a href="images/ins_gal6.jpg" className="has-popup-gallery">
                   <img src="images/ins_gal6.jpg" alt="Chicken nuggets" />
                 </a>
@@ -230,12 +230,12 @@ const PhotoGalleryIsotope = () => {
               </div>
             </div>
           </div>
-          <div className="kf-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all hot-coffee">
+          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all hot-coffee">
             <div
-              className="kf-gallery-item element-anim-1 scroll-animate"
+              className="gp-gallery-item element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <div className="image kf-image-hover">
+              <div className="image gp-image-hover">
                 <a href="images/grid_gal1.jpg" className="has-popup-gallery">
                   <img src="images/grid_gal1.jpg" alt="Black coffee" />
                 </a>
@@ -250,12 +250,12 @@ const PhotoGalleryIsotope = () => {
               </div>
             </div>
           </div>
-          <div className="kf-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all dinner-menu">
+          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all dinner-menu">
             <div
-              className="kf-gallery-item element-anim-1 scroll-animate"
+              className="gp-gallery-item element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <div className="image kf-image-hover">
+              <div className="image gp-image-hover">
                 <a href="images/menu_r4.jpg" className="has-popup-gallery">
                   <img src="images/menu_r4.jpg" alt="Spaghetti" />
                 </a>
@@ -270,12 +270,12 @@ const PhotoGalleryIsotope = () => {
               </div>
             </div>
           </div>
-          <div className="kf-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all dinner-menu">
+          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all dinner-menu">
             <div
-              className="kf-gallery-item element-anim-1 scroll-animate"
+              className="gp-gallery-item element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <div className="image kf-image-hover">
+              <div className="image gp-image-hover">
                 <a href="images/menu_r6.jpg" className="has-popup-gallery">
                   <img src="images/menu_r6.jpg" alt="Sea Fish" />
                 </a>

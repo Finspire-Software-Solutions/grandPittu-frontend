@@ -14,7 +14,7 @@ export const scrollAnimation = () => {
 export const stickyNav = () => {
   window.addEventListener("scroll", () => {
     let offset = window.scrollY;
-    const sticky = document.querySelectorAll(".kf-header");
+    const sticky = document.querySelectorAll(".gp-header");
     for (let i = 0; i < sticky.length; i++) {
       const stick = sticky[i];
       if (stick) {

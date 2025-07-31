@@ -2,15 +2,37 @@
 * Footer
 **/
 
-.kf-footer {
+.gp-footer {
   padding: 70px 0 0 0;
-  background: #090c0f;
+  background: #040707;
+ 
+	
   h5 {
     margin: 0 0 20px 0;
   }
 }
 
-.kf-f-hours {
+// Footer specific spinner-logo styles
+.gp-footer .spinner-logo {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0;
+	margin: 0 0 30px 0;
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		width: auto;
+		height: auto;
+		object-fit: contain;
+		display: block;
+	}
+}
+
+.gp-f-hours {
   ul {
     margin: 0;
     padding: 0;
@@ -18,7 +40,7 @@
     li {
       position: relative;
       margin-bottom: 10px;
-      padding-left: 20px;
+      padding-left: 15px;
       color: #fff;
       &:last-child {
         margin-bottom: 0;
@@ -50,7 +72,7 @@
   }
 }
 
-.kf-f-contact {
+.gp-f-contact {
   ul {
     margin: 0;
     padding: 0;
@@ -80,7 +102,7 @@
   }
 }
 
-.kf-f-gallery {
+.gp-f-gallery {
   ul {
     margin: 0 -4px;
     padding: 0;
@@ -98,15 +120,17 @@
         height: 80px;
         object-fit: cover;
         object-position: center;
+        border-radius: 9px;
       }
     }
   }
 }
 
-.kf-copyright {
+.gp-copyright {
   margin-top: 70px;
   padding: 30px 0;
   border-top: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
 }
 
 button.mfp-close:before, button.mfp-arrow:before {
@@ -114,16 +138,20 @@ button.mfp-close:before, button.mfp-arrow:before {
 }
 
 @media screen and (max-width: 992px) {
-	.kf-f-hours {
+	.gp-f-hours {
 		margin-bottom: 50px;
 	}
 }
 
 @media screen and (max-width: 767px) {
-	.kf-footer .kf-logo, .kf-f-hours, .kf-f-contact {
+	.gp-footer .spinner-logo, .gp-f-hours, .gp-f-contact {
 		margin-bottom: 50px;
 	}
-  .kf-copyright {
+	.gp-footer .spinner-logo {
+		width: 100px;
+		height: 100px;
+	}
+  .gp-copyright {
     margin-top: 50px;
     font-size: 14px;
   }

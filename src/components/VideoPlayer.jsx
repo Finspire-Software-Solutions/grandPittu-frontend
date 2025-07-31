@@ -3,7 +3,7 @@ const VideoPlayer = ({ videoBg, extraClass, dataAnimation }) => {
   const [video, setVideo] = useState(false);
   return (
     <div
-      className={`kf-video-item ${extraClass} ${video ? "active" : ""}`}
+      className={`gp-video-item ${extraClass} ${video ? "active" : ""}`}
       data-animate={dataAnimation ? "active" : ""}
       style={{
         backgroundImage: `url(${videoBg})`,
