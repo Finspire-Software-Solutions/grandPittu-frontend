@@ -106,7 +106,7 @@ const Header = () => {
               <span />
             </a>
             {/* btn */}
-            <Link to="reservation" className="gp-btn h-btn">
+            <Link to="/reservation" className="gp-btn h-btn">
               <span>Book a table</span>
             </Link>
           </div>

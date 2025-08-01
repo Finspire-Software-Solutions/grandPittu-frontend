@@ -1,106 +1,15 @@
 import TestimonialsCarousel from "@/components/sliders/TestimonialsCarousel";
-
+import MainSlider from "@/components/sliders/MainSlider";
 import Layouts from "@/layouts/Layouts";
-import { sliderProps } from "@/utils/sliderProps";
+
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
+
 
 const Index2 = () => {
   return (
     <Layouts>
       {/* Section Started Slider */}
-      <section className="section gp-started-slider">
-        <Swiper
-          {...sliderProps.mainSliderSelector}
-          className="swiper-container"
-        >
-          <div className="swiper-wrapper">
-            <SwiperSlide className="swiper-slide">
-              <div className="gp-started-item">
-                <div
-                  className="slide js-parallax"
-                  style={{ backgroundImage: "url(images/started_img7.jpg)" }}
-                />
-                <div className="container">
-                  <div className="description align-left element-anim-1">
-                    <div className="subtitles">Welcome to the Grandpittu</div>
-                    <h2 className="name text-anim-1" data-splitting="chars">
-                      Northern Flavours.  <br />
-                      Colombo Vibe.
-                    </h2>
-                    <div className="gp-bts">
-                      <Link href="menu-restaurant" className="gp-btn">
-                        <span>explore more</span>
-                        <i className="fas fa-chevron-right" />
-                      </Link>
-                      {/* <Link href="reservation" className="gp-btn dark-btn">
-                        <span>get delivery</span>
-                        <i className="fas fa-chevron-right" />
-                      </Link> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiper-slide">
-              <div className="gp-started-item">
-                <div
-                  className="slide js-parallax"
-                  style={{ backgroundImage: "url(images/started_img_n3.jpg)" }}
-                />
-                <div className="container">
-                  <div className="description align-left element-anim-1">
-                    <div className="subtitles">Welcome to the Grandpittu</div>
-                    <h2 className="name text-anim-1" data-splitting="chars">
-                     Jaffna's Heart  <br />
-                    in Every Bite
-                    </h2>
-                    <div className="gp-bts">
-                      <Link href="menu-restaurant" className="gp-btn">
-                        <span>explore more</span>
-                        <i className="fas fa-chevron-right" />
-                      </Link>
-                      {/* <Link href="reservation" className="gp-btn dark-btn">
-                        <span>get delivery</span>
-                        <i className="fas fa-chevron-right" />
-                      </Link> */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="swiper-slide">
-              <div className="gp-started-item">
-                <div
-                  className="slide js-parallax"
-                  style={{ backgroundImage: "url(images/started_img6.jpg)" }}
-                />
-                <div className="container">
-                  <div className="description align-left element-anim-1">
-                    <div className="subtitles">Welcome to the Grandpittu</div>
-                    <h2 className="name text-anim-1" data-splitting="chars">
-                      True Tamil Food  <br />
-                      from the North
-                    </h2>
-                    <div className="gp-bts">
-                      <Link href="menu-restaurant" className="gp-btn">
-                        <span>explore more</span>
-                        <i className="fas fa-chevron-right" />
-                      </Link>
-                      <Link href="reservation" className="gp-btn dark-btn">
-                        <span>get delivery</span>
-                        <i className="fas fa-chevron-right" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div className="swiper-button-prev" />
-          <div className="swiper-button-next" />
-        </Swiper>
-      </section>
+      <MainSlider />
       {/* Section Category */}
       <section
         className="section gp-category"

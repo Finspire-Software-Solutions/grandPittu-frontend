@@ -95,7 +95,7 @@ const About = () => {
                 </ul>
               </div>
               <Link
-                href="/menu-restaurant"
+                to="/menu"
                 className="gp-btn element-anim-1 scroll-animate"
                 data-animate="active"
               >
@@ -214,7 +214,7 @@ const About = () => {
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 align-self-center align-right">
               <Link
-                href="reservation"
+                to="reservation"
                 className="gp-btn element-anim-1 scroll-animate"
                 data-animate="active"
               >

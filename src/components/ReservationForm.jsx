@@ -151,14 +151,36 @@ const ReservationForm = () => {
               </div>
               <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div className="gp-field">
-                  <input 
-                    type="time" 
-                    name="time" 
+                  <select
+                    name="time"
                     required="required"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.time}
-                  />
+                  >
+                    <option value="">Select Time Slot</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="10:30">10:30 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="11:30">11:30 AM</option>
+                    <option value="12:00">12:00 PM</option>
+                    <option value="12:30">12:30 PM</option>
+                    <option value="13:00">1:00 PM</option>
+                    <option value="13:30">1:30 PM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="14:30">2:30 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="15:30">3:30 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="16:30">4:30 PM</option>
+                    <option value="17:00">5:00 PM</option>
+                    <option value="17:30">5:30 PM</option>
+                    <option value="18:00">6:00 PM</option>
+                    <option value="18:30">6:30 PM</option>
+                    <option value="19:00">7:00 PM</option>
+                    <option value="19:30">7:30 PM</option>
+                    <option value="20:00">8:00 PM</option>
+                  </select>
                   <i className="far fa-clock" />
                 </div>
               </div>
