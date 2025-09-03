@@ -11,6 +11,7 @@ import "../public/styles/magnific-popup.css";
 import "../public/styles/splitting.css";
 import "../public/styles/swiper.css";
 import "./scss/main.scss";
+import "./styles/cms.css";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

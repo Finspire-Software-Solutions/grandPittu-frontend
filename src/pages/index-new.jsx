@@ -6,6 +6,7 @@ import {
 } from "@/hooks/useCMSData";
 import { 
   LoadingSpinner, 
+  ErrorMessage, 
   CMSTitles, 
   CMSButton, 
   CMSContent,
@@ -16,8 +17,8 @@ import MainSlider from "@/components/sliders/MainSlider";
 import Layouts from "@/layouts/Layouts";
 import { Link } from "react-router-dom";
 
-const Index = () => {
-  useGlobalData(); // Apply global styles
+const Index2 = () => {
+  const { globalData } = useGlobalData();
   const { content: homeContent, loading: homeLoading } = usePageContent('home');
   const { content: ctaContent, loading: ctaLoading } = usePageContent('home', 'cta');
   const { menuItems, categories, loading: menuLoading } = useMenuData();
@@ -43,13 +44,13 @@ const Index = () => {
                     <div className="image gp-image-hover">
                       <Link to="/menu-restaurant">
                         <CMSImage 
-                          image={cat.image} 
-                          alt={cat.name}
+                          image={cat.attributes.image} 
+                          alt={cat.attributes.name}
                         />
                       </Link>
                     </div>
                     <div className="desc">
-                      <h5 className="name">{cat.name}</h5>
+                      <h5 className="name">{cat.attributes.name}</h5>
                     </div>
                   </div>
                 ))}
@@ -84,15 +85,15 @@ const Index = () => {
               {menuItems.slice(0, 3).map(item => (
                 <div className="gp-menu-card" key={item.id}>
                   <CMSImage 
-                    image={item.image}
-                    alt={item.name}
+                    image={item.attributes.image}
+                    alt={item.attributes.name}
                     className="gp-menu-img"
                   />
                   <div className="gp-menu-content">
-                    <h4 className="gp-menu-title">{item.name}</h4>
-                    <p className="gp-menu-desc">{item.description}</p>
+                    <h4 className="gp-menu-title">{item.attributes.name}</h4>
+                    <p className="gp-menu-desc">{item.attributes.description}</p>
                     <div className="gp-menu-price">
-                      {item.price && `Rs. ${item.price}`}
+                      {item.attributes.price && `Rs. ${item.attributes.price}`}
                     </div>
                   </div>
                 </div>
@@ -134,13 +135,13 @@ const Index = () => {
                     <div className="gp-services-item-2 element-anim-1 scroll-animate" data-animate="active">
                       <div className="image">
                         <CMSImage 
-                          image={service.image}
-                          alt={service.name}
+                          image={service.attributes.image}
+                          alt={service.attributes.name}
                         />
                       </div>
                       <div className="desc">
-                        <h5 className="name">{service.name}</h5>
-                        <div className="subname">{service.description}</div>
+                        <h5 className="name">{service.attributes.name}</h5>
+                        <div className="subname">{service.attributes.description}</div>
                       </div>
                     </div>
                   </div>
@@ -182,4 +183,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Index2;
