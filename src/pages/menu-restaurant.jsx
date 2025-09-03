@@ -1,364 +1,195 @@
+
+import { useCMSData } from "@/hooks/useCMSData";
+import { LoadingSpinner, ErrorMessage, CMSTitles, CMSImage } from "@/components/cms/CMSComponents";
 import InstaCarousel from "@/components/sliders/InstaCarousel";
 import Layouts from "@/layouts/Layouts";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const MenuRestaurant = () => {
+  // Fetch menu cards (menu images) instead of individual items
+  const { data: menuCards, loading, error } = useCMSData('menu-cards');
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  if (loading) return <LoadingSpinner message="Loading menu..." />;
+  if (error) return <ErrorMessage error={error} />;
+
+  // Fallback menu cards if CMS data is not available
+  const fallbackMenuCards = [
+    {
+      id: 1,
+      attributes: {
+        title: "Traditional Lunch Menu",
+        category: "lunch",
+        image: { url: "images/menu1.jpg" },
+        description: "Authentic Tamil lunch dishes served with traditional sides"
+      }
+    },
+    {
+      id: 2,
+      attributes: {
+        title: "Dinner Specialties",
+        category: "dinner", 
+        image: { url: "images/menu2.jpg" },
+        description: "Evening specialties featuring fresh seafood and meat dishes"
+      }
+    },
+    {
+      id: 3,
+      attributes: {
+        title: "Appetizers & Starters",
+        category: "appetizers",
+        image: { url: "images/menu3.jpg" },
+        description: "Traditional appetizers to start your meal"
+      }
+    },
+    {
+      id: 4,
+      attributes: {
+        title: "Beverages & Desserts",
+        category: "beverages",
+        image: { url: "images/menu4.jpg" },
+        description: "Refreshing drinks and sweet endings to your meal"
+      }
+    },
+    {
+      id: 5,
+      attributes: {
+        title: "Coffee & Tea Menu",
+        category: "beverages",
+        image: { url: "images/menu5.jpg" },
+        description: "Hot beverages and traditional coffee preparations"
+      }
+    },
+    {
+      id: 6,
+      attributes: {
+        title: "Weekend Specials",
+        category: "specials",
+        image: { url: "images/menu6.jpg" },
+        description: "Special dishes available on weekends only"
+      }
+    }
+  ];
+
+  const displayMenuCards = menuCards?.length > 0 ? menuCards : fallbackMenuCards;
+
+  // Get unique categories
+  const categories = [...new Set(displayMenuCards.map(card => card.attributes.category))];
+
+  // Filter menu cards by category
+  const filteredCards = activeCategory === 'all' 
+    ? displayMenuCards 
+    : displayMenuCards.filter(card => card.attributes.category === activeCategory);
+
   return (
     <Layouts>
-     
-      {/* Section Menu-2 */}
+      {/* Section Started Inner */}
+      <section className="section gp-started-inner">
+        <div className="gp-parallax-bg js-parallax" style={{ backgroundImage: "url(images/menu_rest_inner_bg.jpg)" }} />
+        <div className="container">
+          <h1 className="gp-h-title text-anim-1 scroll-animate" data-splitting="chars" data-animate="active">
+            Menu
+          </h1>
+        </div>
+      </section>
+
+      {/* Section Menu Cards */}
       <section className="section gp-menu">
         <div className="container">
-          <div className="gp-titles align-center">
-            <div
-              className="gp-subtitle element-anim-1 scroll-animate"
-              data-animate="active"
+          <CMSTitles 
+            subtitle="Sri Lankan Tamil Tradition"
+            title="Discover Our Complete Menu Collection"
+            alignment="align-center"
+          />
+
+          {/* Category Filter */}
+          <div className="gp-menu-filters align-center">
+            <button 
+              className={`gp-filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
+              onClick={() => setActiveCategory('all')}
             >
-              Sri Lankan Tamil Tradition
-            </div>
-            <h3
-              className="gp-title element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              Grandpittu Traditional Lunch Menu
-            </h3>
+              All Menus
+            </button>
+            {categories.map((category, index) => (
+              <button 
+                key={index}
+                className={`gp-filter-btn ${activeCategory === category ? 'active' : ''}`}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </button>
+            ))}
           </div>
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-              <div className="gp-menu-items-2">
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/pittu.jpg" className="has-popup-image">
-                      <img src="images/pittu.jpg" alt="Pittu" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Pittu & Katta Sambol</h5>
-                    <div className="subname">Steamed rice flour cylinders served with spicy coconut sambol</div>
-                    <div className="price">
-                      <span>Rs. 350</span>
+
+          {/* Menu Cards Grid */}
+          <div className="gp-menu-cards-grid">
+            {filteredCards.map(card => (
+              <div 
+                className="gp-menu-card-item element-anim-1 scroll-animate" 
+                data-animate="active" 
+                key={card.id}
+              >
+                <div className="gp-menu-card-image gp-image-hover">
+                  <a href={card.attributes.image?.url} className="has-popup-image">
+                    <CMSImage 
+                      image={card.attributes.image}
+                      alt={card.attributes.title}
+                      className="menu-card-img"
+                    />
+                    <div className="gp-menu-card-overlay">
+                      <div className="gp-menu-card-content">
+                        <h4>{card.attributes.title}</h4>
+                        <p>{card.attributes.description}</p>
+                        <span className="view-menu-text">Click to view full menu</span>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/aattukari_soru.jpg" className="has-popup-image">
-                      <img src="images/aattukari_soru.jpg" alt="Aattukari Soru" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Aattukari Soru</h5>
-                    <div className="subname">Traditional mutton biryani with aromatic spices</div>
-                    <div className="price">
-                      <span>Rs. 650</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/fish_kulambu.jpg" className="has-popup-image">
-                      <img src="images/fish_kulambu.jpg" alt="Fish Kulambu" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Fish Kulambu</h5>
-                    <div className="subname">Tangy and spicy fish curry, a Jaffna specialty</div>
-                    <div className="price">
-                      <span>Rs. 400</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/idiyappam.jpg" className="has-popup-image">
-                      <img src="images/idiyappam.jpg" alt="Idiyappam" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Idiyappam & Coconut Milk</h5>
-                    <div className="subname">String hoppers served with sweet coconut milk</div>
-                    <div className="price">
-                      <span>Rs. 300</span>
-                    </div>
-                  </div>
+                <div className="gp-menu-card-info">
+                  <h5 className="gp-menu-card-title">{card.attributes.title}</h5>
+                  <p className="gp-menu-card-desc">{card.attributes.description}</p>
+                  <span className="gp-menu-card-category">
+                    {card.attributes.category?.charAt(0).toUpperCase() + card.attributes.category?.slice(1)}
+                  </span>
                 </div>
               </div>
-              <div
-                className="gp-menu-image-2 left element-anim-1 scroll-animate"
-                data-animate="active"
-                style={{ backgroundImage: "url(images/history1.jpg)" }}
-              />
+            ))}
+          </div>
+
+          {/* Empty State */}
+          {filteredCards.length === 0 && (
+            <div className="gp-empty-state">
+              <p>No menu cards found in this category.</p>
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-              <div
-                className="gp-menu-image-2 right element-anim-1 scroll-animate"
-                data-animate="active"
-                style={{ backgroundImage: "url(images/history2.jpg)" }}
+          )}
+
+          {/* Download Menu Section */}
+          <div className="gp-download-menu-section">
+            <div className="gp-download-content">
+              <CMSTitles 
+                subtitle="Take Our Menu With You"
+                title="Download Complete Menu"
+                alignment="align-center"
               />
-              <div className="gp-menu-items-2">
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/odiyal_kool.jpg" className="has-popup-image">
-                      <img src="images/odiyal_kool.jpg" alt="Odiyal Kool" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Odiyal Kool</h5>
-                    <div className="subname">Hearty seafood and root vegetable soup from the North</div>
-                    <div className="price">
-                      <span>Rs. 500</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/crab_curry.jpg" className="has-popup-image">
-                      <img src="images/crab_curry.jpg" alt="Crab Curry" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Crab Curry</h5>
-                    <div className="subname">Spicy lagoon crab cooked in traditional Jaffna style</div>
-                    <div className="price">
-                      <span>Rs. 1200</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/gummy.png" className="has-popup-image">
-                      <img src="images/gummy.png" alt="Palmyra Jaggery Sweets" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Palmyra Jaggery Sweets</h5>
-                    <div className="subname">Traditional sweets made from palmyra jaggery</div>
-                    <div className="price">
-                      <span>Rs. 150</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/fresh.png" className="has-popup-image">
-                      <img src="images/fresh.png" alt="Fresh Toddy" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Fresh Toddy</h5>
-                    <div className="subname">Natural palm wine, a festive Tamil beverage</div>
-                    <div className="price">
-                      <span>Rs. 200</span>
-                    </div>
-                  </div>
-                </div>
+              <div className="gp-download-buttons">
+                <a href="/menu/grandpittu-lunch-menu.pdf" className="gp-btn" download>
+                  <span>Download Lunch Menu</span>
+                  <i className="fas fa-download" />
+                </a>
+                <a href="/menu/grandpittu-dinner-menu.pdf" className="gp-btn" download>
+                  <span>Download Dinner Menu</span>
+                  <i className="fas fa-download" />
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* Section Menu-2 */}
-      <section className="section gp-menu">
-        <div className="container">
-          <div className="gp-titles align-center">
-            <div
-              className="gp-subtitle element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              Sri Lankan Tamil Tradition
-            </div>
-            <h3
-              className="gp-title element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              Grandpittu Traditional Dinner Menu
-            </h3>
-          </div>
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-              <div className="gp-menu-items-2">
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/soup.jpg" className="has-popup-image">
-                      <img src="images/soup.jpg" alt="Kool Soup" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Kool Soup</h5>
-                    <div className="subname">A rich seafood and root vegetable stew, a northern Tamil delicacy</div>
-                    <div className="price">
-                      <span>Rs. 600</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/mutton.jpg" className="has-popup-image">
-                      <img src="images/mutton.jpg" alt="Mutton Varuval" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Mutton Varuval</h5>
-                    <div className="subname">Spicy dry-fried mutton, a festive dinner favorite</div>
-                    <div className="price">
-                      <span>Rs. 850</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/dosa.jpg" className="has-popup-image">
-                      <img src="images/dosa.jpg" alt="Jaffna Dosa" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Jaffna Dosa</h5>
-                    <div className="subname">Crispy rice pancakes served with sambar and chutney</div>
-                    <div className="price">
-                      <span>Rs. 200</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/prawncurry.jpg" className="has-popup-image">
-                      <img src="images/prawncurry.jpg" alt="Prawn Curry" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Prawn Curry</h5>
-                    <div className="subname">Juicy prawns simmered in spicy coconut gravy</div>
-                    <div className="price">
-                      <span>Rs. 700</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                className="gp-menu-image-2 left element-anim-1 scroll-animate"
-                data-animate="active"
-                style={{ backgroundImage: "url(images/menu5.jpg)" }}
-              />
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-              <div
-                className="gp-menu-image-2 right element-anim-1 scroll-animate"
-                data-animate="active"
-                style={{ backgroundImage: "url(images/menu6.jpg)" }}
-              />
-              <div className="gp-menu-items-2">
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/eggappam.jpg" className="has-popup-image">
-                      <img src="images/eggappam.jpg" alt="Egg Appam" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Egg Appam</h5>
-                    <div className="subname">Bowl-shaped rice pancakes with a soft egg center</div>
-                    <div className="price">
-                      <span>Rs. 250</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/kottu.jpg" className="has-popup-image">
-                      <img src="images/kottu.jpg" alt="Vegetable Kottu" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Vegetable Kottu</h5>
-                    <div className="subname">Chopped roti stir-fried with vegetables and spices</div>
-                    <div className="price">
-                      <span>Rs. 350</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/watt.jpg" className="has-popup-image">
-                      <img src="images/watt.jpg" alt="Wattalappam" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Wattalappam</h5>
-                    <div className="subname">Rich coconut custard pudding with jaggery and spices</div>
-                    <div className="price">
-                      <span>Rs. 180</span>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="gp-menu-item-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  <div className="image gp-image-hover">
-                    <a href="images/banana.jpg" className="has-popup-image">
-                      <img src="images/banana.jpg" alt="Jaggery Banana" />
-                    </a>
-                  </div>
-                  <div className="desc">
-                    <h5 className="name">Jaggery Banana</h5>
-                    <div className="subname">Sweet bananas drizzled with palm jaggery syrup</div>
-                    <div className="price">
-                      <span>Rs. 120</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Section Insta Carousel
-      <InstaCarousel /> */}
+
+      {/* Section Insta Carousel */}
+      <InstaCarousel />
     </Layouts>
   );
 };
+
 export default MenuRestaurant;
