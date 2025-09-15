@@ -41,7 +41,7 @@ const About = () => {
                     data-animate="active"
                   >
                     <div className="icon">
-                      <img src="images/cooking.png" alt="Traditional" />
+                      <img src="images/cooking.webp" alt="Traditional" />
                     </div>
                     <div className="desc">
                       <h5 className="name">Traditional Recipes</h5>
@@ -55,7 +55,7 @@ const About = () => {
                     data-animate="active"
                   >
                     <div className="icon">
-                      <img src="images/fresh.png" alt="Fresh" />
+                      <img src="images/fresh.webp" alt="Fresh" />
                     </div>
                     <div className="desc">
                       <h5 className="name">Fresh & Local Ingredients</h5>
@@ -69,7 +69,7 @@ const About = () => {
                     data-animate="active"
                   >
                     <div className="icon">
-                      <img src="images/family.png" alt="Family" />
+                      <img src="images/family.webp" alt="Family" />
                     </div>
                     <div className="desc">
                       <h5 className="name">Family Atmosphere</h5>
@@ -83,7 +83,7 @@ const About = () => {
                     data-animate="active"
                   >
                     <div className="icon">
-                      <img src="images/champagne.png" alt="Celebration" />
+                      <img src="images/champagne.webp" alt="Celebration" />
                     </div>
                     <div className="desc">
                       <h5 className="name">Cultural Celebrations</h5>
@@ -108,7 +108,7 @@ const About = () => {
                 className="gp-choose-image element-anim-1 scroll-animate"
                 data-animate="active"
               >
-                <img src="images/about_img2.jpg" alt="Grandpittu Restaurant" />
+                <img src="images/about_img2.webp" alt="Grandpittu Restaurant" />
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ const About = () => {
       <section className="section gp-video">
         <div className="container">
           <VideoPlayer
-            videoBg={"images/video_bg.jpg"}
+            videoBg={"images/video_bg.webp"}
             extraClass={"gp-image-hover"}
           />
         </div>
@@ -133,7 +133,7 @@ const About = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/service_icon1.png" alt="image" />
+                  <img src="images/service_icon1.webp" alt="image" />
                 </div>
                 <div className="desc">
                   <h5 className="name">Birthday Cakes</h5>
@@ -147,7 +147,7 @@ const About = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/service_icon2.png" alt="image" />
+                  <img src="images/service_icon2.webp" alt="image" />
                 </div>
                 <div className="desc">
                   <h5 className="name">Fresh Foods</h5>
@@ -161,7 +161,7 @@ const About = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/service_icon3.png" alt="image" />
+                  <img src="images/service_icon3.webp" alt="image" />
                 </div>
                 <div className="desc">
                   <h5 className="name">Skills Chefs</h5>
@@ -175,7 +175,7 @@ const About = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/service_icon4.png" alt="image" />
+                  <img src="images/service_icon4.webp" alt="image" />
                 </div>
                 <div className="desc">
                   <h5 className="name">Organic Juice</h5>
@@ -192,7 +192,7 @@ const About = () => {
       {/* Section CTA */}
       <section
         className="section gp-cta gp-parallax"
-        style={{ backgroundImage: "url(images/cta_bg.jpg)" }}
+        style={{ backgroundImage: "url(images/cta_bg.webp)" }}
       >
         <div className="container">
           <div className="row">

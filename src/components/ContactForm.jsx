@@ -1,83 +1,98 @@
 import { Formik } from 'formik';
+import { useState } from 'react';
+import apiService from '../services/apiService';
+import Toast from './Toast';
 
 const ContactForm = () => {
-  
-  const formData = {
-    "formspreeURL": "https://formspree.io/f/YOUR_API_KEY"
-  }
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [toast, setToast] = useState({ isVisible: false, message: '', type: '' });
+
+  // Validation function
+  const validateForm = (values) => {
+    const errors = {};
+    
+    if (!values.email) {
+      errors.email = 'Required';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = 'Invalid email address';
+    }
+    
+    if (!values.name) {
+      errors.name = 'Required';
+    }
+    
+    if (!values.tel) {
+      errors.tel = 'Required';
+    }
+    
+    if (!values.subject) {
+      errors.subject = 'Required';
+    }
+    
+    if (!values.message) {
+      errors.message = 'Required';
+    }
+    
+    return errors;
+  };
+
+  // Submit handler
+  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    setIsSubmitting(true);
+    setToast({ isVisible: false, message: '', type: '' });
+
+    try {
+      const response = await apiService.createContact(values);
+      
+      setToast({
+        isVisible: true,
+        type: 'success',
+        message: 'Thank you for your message! We have received your inquiry and will get back to you soon.'
+      });
+      
+      resetForm();
+      
+    } catch (error) {
+      console.error('Contact submission error:', error);
+      setToast({
+        isVisible: true,
+        type: 'error',
+        message: error.message || 'Sorry, there was an error sending your message. Please try again or contact us directly.'
+      });
+    } finally {
+      setIsSubmitting(false);
+      setSubmitting(false);
+    }
+  };
+
+  const handleToastClose = () => {
+    setToast({ isVisible: false, message: '', type: '' });
+  };
   
   return (
     <>
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        isVisible={toast.isVisible}
+        onClose={handleToastClose}
+      />
       <Formik
-        initialValues = {{ email: '', name: '', tel: '', subject: '', message: '' }}
-        validate = { values => {
-            const errors = {};
-            if (!values.email) {
-                errors.email = 'Required';
-            } else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-                errors.email = 'Invalid email address';
-            }
-            return errors;
-        }}
-        onSubmit = {( values, { setSubmitting, resetForm } ) => {
-            const form = document.getElementById("contactForm");
-            const status = document.getElementById("contactFormStatus");
-            const data = new FormData();
-
-            data.append('name', values.name);
-            data.append('email', values.email);
-            data.append('tel', values.tel);
-            data.append('subject', values.subject);
-            data.append('message', values.message);
-
-            fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                console.log(response);
-                if (response.ok) {
-                    resetForm();
-                    status.innerHTML = "Thanks for your submission!";
-                    status.style.display = 'block';
-                    form.style.display = 'none';
-
-                    setTimeout(function(){
-                      status.style.display = 'none';
-                      form.style.display = 'block';
-                    }, 4000);
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                        } else {
-                            status.innerHTML = "Oops! There was a problem submitting your form"
-                        }
-                    })
-                }
-            }).catch(error => {
-                status.innerHTML = "Oops! There was a problem submitting your form"
-            });
-
-            setSubmitting(false);
-        }}
-        >
+        initialValues={{ email: '', name: '', tel: '', subject: '', message: '' }}
+        validate={validateForm}
+        onSubmit={handleSubmit}
+      >
         {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-            isSubmitting,
-            /* and other goodies */
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
         }) => (
-        <form onSubmit={handleSubmit} id="contactForm" action={formData.formspreeURL}>
-          <div className="row">
+          <form onSubmit={handleSubmit} id="contactForm">
+            <div className="row">
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
                 <div className="gp-field">
                   <input 
@@ -88,8 +103,14 @@ const ContactForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.name}
+                    style={{ borderColor: errors.name && touched.name ? '#dc3545' : '' }}
                   />
                   <i className="far fa-user" />
+                  {errors.name && touched.name && (
+                    <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
+                      {errors.name}
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
@@ -102,8 +123,14 @@ const ContactForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
+                    style={{ borderColor: errors.email && touched.email ? '#dc3545' : '' }}
                   />
                   <i className="fas fa-at" />
+                  {errors.email && touched.email && (
+                    <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
+                      {errors.email}
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
@@ -116,8 +143,14 @@ const ContactForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.tel}
+                    style={{ borderColor: errors.tel && touched.tel ? '#dc3545' : '' }}
                   />
                   <i className="fas fa-mobile-alt" />
+                  {errors.tel && touched.tel && (
+                    <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
+                      {errors.tel}
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -130,7 +163,13 @@ const ContactForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.subject}
+                    style={{ borderColor: errors.subject && touched.subject ? '#dc3545' : '' }}
                   />
+                  {errors.subject && touched.subject && (
+                    <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
+                      {errors.subject}
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -138,12 +177,17 @@ const ContactForm = () => {
                   <textarea
                     name="message"
                     placeholder="Message"
-                    defaultValue={""}
                     required="required" 
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.message}
+                    style={{ borderColor: errors.message && touched.message ? '#dc3545' : '' }}
                   />
+                  {errors.message && touched.message && (
+                    <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
+                      {errors.message}
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -151,8 +195,9 @@ const ContactForm = () => {
                   <button
                     type="submit"
                     className="gp-btn"
+                    disabled={isSubmitting}
                   >
-                    <span>Send us message</span>
+                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                     <i className="fas fa-chevron-right" />
                   </button>
                 </div>
@@ -162,10 +207,8 @@ const ContactForm = () => {
         </form>
         )}
       </Formik>
-      <div className="alert-success" style={{ display: "none" }} id="contactFormStatus">
-        <p>Thanks, your message is sent successfully.</p>
-      </div>
     </>
   );
 };
+
 export default ContactForm;

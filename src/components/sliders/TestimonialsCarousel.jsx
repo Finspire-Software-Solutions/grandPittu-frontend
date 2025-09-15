@@ -15,12 +15,12 @@ const TestimonialsCarousel = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
                   <div className="google-review-header">
-                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <img src="images/rev1.webp" alt="Reviewer" className="google-review-avatar" />
                     <div className="google-review-info">
                       <span className="google-review-name">Arun S.</span>
                       <span className="google-review-date">July 2025</span>
                     </div>
-                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
+                    <img src="images/google.webp" alt="Google" className="google-review-gicon" />
                   </div>
                   <div className="google-review-stars">
                     {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
@@ -33,12 +33,12 @@ const TestimonialsCarousel = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
                   <div className="google-review-header">
-                    <img src="images/rev2.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <img src="images/rev2.webp" alt="Reviewer" className="google-review-avatar" />
                     <div className="google-review-info">
                       <span className="google-review-name">Niranjani T.</span>
                       <span className="google-review-date">June 2025</span>
                     </div>
-                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
+                    <img src="images/google.webp" alt="Google" className="google-review-gicon" />
                   </div>
                   <div className="google-review-stars">
                     {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
@@ -51,12 +51,12 @@ const TestimonialsCarousel = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
                   <div className="google-review-header">
-                    <img src="images/rev3.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <img src="images/rev3.webp" alt="Reviewer" className="google-review-avatar" />
                     <div className="google-review-info">
                       <span className="google-review-name">Ramesh K.</span>
                       <span className="google-review-date">May 2025</span>
                     </div>
-                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
+                    <img src="images/google.webp" alt="Google" className="google-review-gicon" />
                   </div>
                   <div className="google-review-stars">
                     {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
@@ -69,12 +69,12 @@ const TestimonialsCarousel = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
                   <div className="google-review-header">
-                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <img src="images/rev1.webp" alt="Reviewer" className="google-review-avatar" />
                     <div className="google-review-info">
                       <span className="google-review-name">Arun S.</span>
                       <span className="google-review-date">July 2025</span>
                     </div>
-                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
+                    <img src="images/google.webp" alt="Google" className="google-review-gicon" />
                   </div>
                   <div className="google-review-stars">
                     {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
@@ -87,12 +87,12 @@ const TestimonialsCarousel = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
                   <div className="google-review-header">
-                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <img src="images/rev1.webp" alt="Reviewer" className="google-review-avatar" />
                     <div className="google-review-info">
                       <span className="google-review-name">Arun S.</span>
                       <span className="google-review-date">July 2025</span>
                     </div>
-                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
+                    <img src="images/google.webp" alt="Google" className="google-review-gicon" />
                   </div>
                   <div className="google-review-stars">
                     {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
@@ -105,12 +105,12 @@ const TestimonialsCarousel = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
                   <div className="google-review-header">
-                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <img src="images/rev1.webp" alt="Reviewer" className="google-review-avatar" />
                     <div className="google-review-info">
                       <span className="google-review-name">Arun S.</span>
                       <span className="google-review-date">July 2025</span>
                     </div>
-                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
+                    <img src="images/google.webp" alt="Google" className="google-review-gicon" />
                   </div>
                   <div className="google-review-stars">
                     {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}
@@ -123,12 +123,12 @@ const TestimonialsCarousel = () => {
               <SwiperSlide className="swiper-slide">
                 <div className="google-review-card element-anim-1 scroll-animate" data-animate="active">
                   <div className="google-review-header">
-                    <img src="images/rev1.jpg" alt="Reviewer" className="google-review-avatar" />
+                    <img src="images/rev1.webp" alt="Reviewer" className="google-review-avatar" />
                     <div className="google-review-info">
                       <span className="google-review-name">Arun S.</span>
                       <span className="google-review-date">July 2025</span>
                     </div>
-                    <img src="images/google.png" alt="Google" className="google-review-gicon" />
+                    <img src="images/google.webp" alt="Google" className="google-review-gicon" />
                   </div>
                   <div className="google-review-stars">
                     {[...Array(5)].map((_,i)=>(<i key={i} className="fas fa-star" style={{color:'#fbbc04'}} />))}

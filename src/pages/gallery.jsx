@@ -8,28 +8,13 @@ import PhotoGalleryIsotope from "@/components/PhotoGalleryIsotope";
 const Gallery = () => {
   return (
     <Layouts>
-      {/* Section Started Inner */}
-      <section className="section gp-started-inner">
-        <div
-          className="gp-parallax-bg js-parallax"
-          style={{ backgroundImage: "url(images/gallery_inner_bg.jpg)" }}
-        />
-        <div className="container">
-          <h1
-            className="gp-h-title text-anim-1 scroll-animate"
-            data-splitting="chars"
-            data-animate="active"
-          >
-            Gallery
-          </h1>
-        </div>
-      </section>
+
       {/* Section Gallery */}
       <PhotoGalleryIsotope />
       {/* Section CTA */}
       <section
         className="section gp-cta gp-parallax"
-        style={{ backgroundImage: "url(images/cta_bg3.jpg)" }}
+        style={{ backgroundImage: "url(images/cta_bg3.webp)" }}
       >
         <div className="container">
           <div className="row">
@@ -72,7 +57,7 @@ const Gallery = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/brand1.png" alt="image" />
+                  <img src="images/brand1.webp" alt="image" />
                 </div>
               </div>
             </div>
@@ -82,7 +67,7 @@ const Gallery = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/brand2.png" alt="image" />
+                  <img src="images/brand2.webp" alt="image" />
                 </div>
               </div>
             </div>
@@ -92,7 +77,7 @@ const Gallery = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/brand3.png" alt="image" />
+                  <img src="images/brand3.webp" alt="image" />
                 </div>
               </div>
             </div>
@@ -102,7 +87,7 @@ const Gallery = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/brand4.png" alt="image" />
+                  <img src="images/brand4.webp" alt="image" />
                 </div>
               </div>
             </div>
@@ -112,7 +97,7 @@ const Gallery = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/brand5.png" alt="image" />
+                  <img src="images/brand5.webp" alt="image" />
                 </div>
               </div>
             </div>
@@ -122,7 +107,7 @@ const Gallery = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  <img src="images/brand6.png" alt="image" />
+                  <img src="images/brand6.webp" alt="image" />
                 </div>
               </div>
             </div>

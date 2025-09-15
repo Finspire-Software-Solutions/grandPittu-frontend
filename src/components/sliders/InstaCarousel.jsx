@@ -13,7 +13,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal1.jpg" alt="image" />
+                    <img src="images/ins_gal1.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -23,7 +23,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal2.jpg" alt="image" />
+                    <img src="images/ins_gal2.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -33,7 +33,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal3.jpg" alt="image" />
+                    <img src="images/ins_gal3.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -43,7 +43,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal4.jpg" alt="image" />
+                    <img src="images/ins_gal4.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -53,7 +53,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal5.jpg" alt="image" />
+                    <img src="images/ins_gal5.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -63,7 +63,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal6.jpg" alt="image" />
+                    <img src="images/ins_gal6.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -73,7 +73,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal1.jpg" alt="image" />
+                    <img src="images/ins_gal1.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -83,7 +83,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal2.jpg" alt="image" />
+                    <img src="images/ins_gal2.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -93,7 +93,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal3.jpg" alt="image" />
+                    <img src="images/ins_gal3.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -103,7 +103,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal4.jpg" alt="image" />
+                    <img src="images/ins_gal4.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -113,7 +113,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal5.jpg" alt="image" />
+                    <img src="images/ins_gal5.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>
@@ -123,7 +123,7 @@ const InstaCarousel = () => {
               <div className="slide-item">
                 <div className="image gp-image-hover">
                   <a href="instagram.com" target="blank">
-                    <img src="images/ins_gal6.jpg" alt="image" />
+                    <img src="images/ins_gal6.webp" alt="image" />
                     <i className="fab fa-instagram" />
                   </a>
                 </div>

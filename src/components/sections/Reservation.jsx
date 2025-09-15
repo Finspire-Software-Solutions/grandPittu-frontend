@@ -12,11 +12,11 @@ const ReservationSection = () => {
         >
           <div
             className="image-left"
-            style={{ backgroundImage: "url(images/reservation5.jpg)" }}
+            style={{ backgroundImage: "url(images/reservation5.webp)" }}
           />
           <div
             className="image-right"
-            style={{ backgroundImage: "url(images/reservation6.jpg)" }}
+            style={{ backgroundImage: "url(images/reservation6.webp)" }}
           />
           <div className="gp-titles align-center">
             <div className="gp-subtitle">Booking Table</div>

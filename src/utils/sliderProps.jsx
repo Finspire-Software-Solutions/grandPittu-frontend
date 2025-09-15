@@ -12,8 +12,12 @@ import {
   Scrollbar,
 } from "swiper/modules";
 
+// Define the interleaveOffset variable that was missing
+const interleaveOffset = 0.5;
+
 export const sliderProps = {
   mainSliderSelector: {
+    modules: [Autoplay, Navigation, Parallax],
     slidesPerView: 1,
     spaceBetween: 0,
     loop: true,
@@ -34,8 +38,10 @@ export const sliderProps = {
           var slideProgress = swiper.slides[i].progress,
             innerOffset = swiper.width * interleaveOffset,
             innerTranslate = slideProgress * innerOffset;
-          swiper.slides[i].querySelector(".slide").style.transform =
-            "translateX(" + innerTranslate + "px)";
+          const slideElement = swiper.slides[i].querySelector(".slide");
+          if (slideElement) {
+            slideElement.style.transform = "translateX(" + innerTranslate + "px)";
+          }
         }
       },
       touchStart: function () {
@@ -47,13 +53,16 @@ export const sliderProps = {
       setTransition: function (swiper, speed) {
         for (var i = 0; i < swiper.slides.length; i++) {
           swiper.slides[i].style.transition = speed + "ms";
-          swiper.slides[i].querySelector(".slide").style.transition =
-            speed + "ms";
+          const slideElement = swiper.slides[i].querySelector(".slide");
+          if (slideElement) {
+            slideElement.style.transition = speed + "ms";
+          }
         }
       },
     },
   },
   gpGridCarousel: {
+    modules: [],
     slidesPerView: 3,
     spaceBetween: 30,
     loop: true,
@@ -77,6 +86,7 @@ export const sliderProps = {
     },
   },
   gpTestimonialsCarousel: {
+    modules: [Pagination],
     slidesPerView: 4,
     spaceBetween: 30,
     loop: false,
@@ -85,7 +95,7 @@ export const sliderProps = {
     pagination: {
       el: ".swiper-pagination",
       type: "bullets",
-      clickable: "true",
+      clickable: true,
     },
     navigation: false,
     breakpoints: {
@@ -104,6 +114,7 @@ export const sliderProps = {
     },
   },
   gpInstaCarousel: {
+    modules: [],
     slidesPerView: 3,
     spaceBetween: 0,
     loop: true,
@@ -127,6 +138,7 @@ export const sliderProps = {
     },
   },
   gpHistory: {
+    modules: [Pagination, Scrollbar, Navigation],
     slidesPerView: 1,
     spaceBetween: 70,
     loop: false,
@@ -134,7 +146,7 @@ export const sliderProps = {
     pagination: {
       el: ".swiper-pagination",
       type: "bullets",
-      clickable: "true",
+      clickable: true,
     },
     scrollbar: {
       el: ".swiper-scrollbar",

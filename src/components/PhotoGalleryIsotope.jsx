@@ -1,47 +1,123 @@
 import Isotope from "isotope-layout";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useMemo, memo } from "react";
+
+// Memoized gallery item component for better performance
+const GalleryItem = memo(({ item }) => {
+  const imagePath = `images/gallery/${item.image}`;
+  
+  return (
+    <div className={`gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all ${item.category}`}>
+      <div
+        className="gp-gallery-item element-anim-1 scroll-animate"
+        data-animate="active"
+      >
+        <div className="image gp-image-hover">
+          <a href={imagePath} className="has-popup-gallery">
+            <img 
+              src={imagePath} 
+              alt={`Gallery Image ${item.id}`}
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="300"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+GalleryItem.displayName = 'GalleryItem';
 
 const PhotoGalleryIsotope = () => {
   // Isotope
   const isotope = useRef();
+  const containerRef = useRef();
   const [filterKey, setFilterKey] = useState("*");
+  const [isotopeReady, setIsotopeReady] = useState(false);
+
+  // Memoize gallery data to prevent unnecessary re-renders
+  const galleryData = useMemo(() => [
+    { id: 1, category: "fast-food", image: "gallery (1).webp" },
+    { id: 2, category: "dinner-menu", image: "gallery (2).webp" },
+    { id: 3, category: "beverages", image: "gallery (3).webp" },
+    { id: 4, category: "fast-food", image: "gallery (4).webp" },
+    { id: 5, category: "dinner-menu", image: "gallery (5).webp" },
+    { id: 6, category: "beverages", image: "gallery (6).webp" },
+    { id: 7, category: "fast-food", image: "gallery (7).webp" },
+    { id: 8, category: "dinner-menu", image: "gallery (8).webp" },
+    { id: 9, category: "beverages", image: "gallery (9).webp" },
+    { id: 10, category: "fast-food", image: "gallery (10).webp" },
+    { id: 11, category: "dinner-menu", image: "gallery (11).webp" },
+  ], []);
+
+  // Initialize Isotope with optimizations
   useEffect(() => {
-    setTimeout(() => {
-      isotope.current = new Isotope(".gp-gallery-items", {
-        itemSelector: ".gp-gallery-col",
-        //    layoutMode: "fitRows",
-        percentPosition: true,
-        masonry: {
-          columnWidth: ".gp-gallery-col",
-        },
-        animationOptions: {
-          duration: 750,
-          easing: "linear",
-          queue: false,
-        },
-      });
-    }, 1000);
-    // Isotope instance cleanup can be added here if needed.
+    let timeoutId;
+    
+    const initIsotope = () => {
+      if (containerRef.current && !isotope.current) {
+        isotope.current = new Isotope(containerRef.current, {
+          itemSelector: ".gp-gallery-col",
+          percentPosition: true,
+          masonry: {
+            columnWidth: ".gp-gallery-col",
+            gutter: 0,
+          },
+          transitionDuration: "0.3s",
+          hiddenStyle: {
+            opacity: 0,
+            transform: "scale(0.9)",
+          },
+          visibleStyle: {
+            opacity: 1,
+            transform: "scale(1)",
+          },
+        });
+        setIsotopeReady(true);
+      }
+    };
+
+    // Use requestAnimationFrame for better performance
+    timeoutId = setTimeout(() => {
+      requestAnimationFrame(initIsotope);
+    }, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+      if (isotope.current) {
+        isotope.current.destroy();
+        isotope.current = null;
+        setIsotopeReady(false);
+      }
+    };
   }, []);
+
+  // Optimized filter effect
   useEffect(() => {
-    if (isotope.current) {
-      filterKey === "*"
-        ? isotope.current.arrange({ filter: `*` })
-        : isotope.current.arrange({ filter: `.${filterKey}` });
+    if (isotope.current && isotopeReady) {
+      const filter = filterKey === "*" ? "*" : `.${filterKey}`;
+      isotope.current.arrange({ filter });
+    }
+  }, [filterKey, isotopeReady]);
+
+  // Memoized filter handler
+  const handleFilterKeyChange = useCallback((key) => (e) => {
+    e.preventDefault();
+    if (key === filterKey) return; // Prevent unnecessary updates
+    
+    setFilterKey(key);
+    
+    // Optimized active class management
+    const filterLinks = containerRef.current?.parentElement?.querySelectorAll(".gp-filter a");
+    if (filterLinks) {
+      filterLinks.forEach((filter) => {
+        const filterValue = filter.getAttribute("data-href");
+        filter.classList.toggle("active", filterValue === key);
+      });
     }
   }, [filterKey]);
-  const handleFilterKeyChange = (key) => () => {
-    setFilterKey(key);
-    const filterLinks = document.querySelectorAll(".gp-filter a");
-    filterLinks.forEach((filter) => {
-      const filterValue = filter.getAttribute("data-href");
-      if (filterValue == key) {
-        filter.classList.add("active");
-      } else {
-        filter.classList.remove("active");
-      }
-    });
-  };
   return (
     <section className="section gp-gallery">
       <div className="container">
@@ -59,237 +135,43 @@ const PhotoGalleryIsotope = () => {
             Looks Our Photo Gallery
           </h3>
         </div>
-        <div
-          className="gp-filter gp-filter-gal element-anim-1 scroll-animate"
-          data-animate="active"
-        >
-          <button
-            type="button"
-            className="c-pointer active"
-            onClick={handleFilterKeyChange("*")}
+        
+        {/* <div className="gp-filter align-center">
+          <a
+            href="#"
+            className="active"
             data-href="*"
-            aria-label="Show all"
+            onClick={handleFilterKeyChange("*")}
           >
             All
-          </button>
-          <button
-            type="button"
-            className="c-pointer"
-            onClick={handleFilterKeyChange("fast-food")}
+          </a>
+          <a
+            href="#"
             data-href="fast-food"
-            aria-label="Show fast food"
+            onClick={handleFilterKeyChange("fast-food")}
           >
-            Fast food
-          </button>
-          <button
-            type="button"
-            className="c-pointer"
-            onClick={handleFilterKeyChange("hot-coffee")}
-            data-href="hot-coffee"
-            aria-label="Show hot coffee"
-          >
-            Hot coffee
-          </button>
-          <button
-            type="button"
-            className="c-pointer"
+            Fast Food
+          </a>
+          <a
+            href="#"
             data-href="dinner-menu"
             onClick={handleFilterKeyChange("dinner-menu")}
-            aria-label="Show dinner menu"
           >
-            Dinner menu
-          </button>
-          <button
-            type="button"
-            className="c-pointer"
-            data-href="special-pizza"
-            onClick={handleFilterKeyChange("special-pizza")}
-            aria-label="Show special pizza"
+            Dinner Menu
+          </a>
+          <a
+            href="#"
+            data-href="beverages"
+            onClick={handleFilterKeyChange("beverages")}
           >
-            Special pizza
-          </button>
-        </div>
-        <div className="gp-gallery-items row">
-          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all fast-food">
-            <div
-              className="gp-gallery-item element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              <div className="image gp-image-hover">
-                <a href="images/ins_gal1.jpg" className="has-popup-gallery">
-                  <img src="images/ins_gal1.jpg" alt="Italian burger" />
-                </a>
-              </div>
-              <div className="desc">
-                <div className="name">
-                  <div className="value">italian burger</div>
-                </div>
-                <div className="subname">
-                  <div className="value">fast food</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all dinner-menu">
-            <div
-              className="gp-gallery-item element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              <div className="image gp-image-hover">
-                <a href="images/ins_gal2.jpg" className="has-popup-gallery">
-                  <img src="images/ins_gal2.jpg" alt="Italian pasta" />
-                </a>
-              </div>
-              <div className="desc">
-                <div className="name">
-                  <div className="value">italian pasta</div>
-                </div>
-                <div className="subname">
-                  <div className="value">dinner menu</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all fast-food">
-            <div
-              className="gp-gallery-item element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              <div className="image gp-image-hover">
-                <a href="images/ins_gal3.jpg" className="has-popup-gallery">
-                  <img src="images/ins_gal3.jpg" alt="Chicken burger" />
-                </a>
-              </div>
-              <div className="desc">
-                <div className="name">
-                  <div className="value">Chicken burger</div>
-                </div>
-                <div className="subname">
-                  <div className="value">fast food</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all special-pizza">
-            <div
-              className="gp-gallery-item element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              <div className="image gp-image-hover">
-                <a href="images/ins_gal4.jpg" className="has-popup-gallery">
-                  <img src="images/ins_gal4.jpg" alt="Italian pizza" />
-                </a>
-              </div>
-              <div className="desc">
-                <div className="name">
-                  <div className="value">italian pizza</div>
-                </div>
-                <div className="subname">
-                  <div className="value">special pizza</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all hot-coffee">
-            <div
-              className="gp-gallery-item element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              <div className="image gp-image-hover">
-                <a href="images/ins_gal5.jpg" className="has-popup-gallery">
-                  <img src="images/ins_gal5.jpg" alt="Cappuccino" />
-                </a>
-              </div>
-              <div className="desc">
-                <div className="name">
-                  <div className="value">cappuccino</div>
-                </div>
-                <div className="subname">
-                  <div className="value">hot coffee</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all fast-food">
-            <div
-              className="gp-gallery-item element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              <div className="image gp-image-hover">
-                <a href="images/ins_gal6.jpg" className="has-popup-gallery">
-                  <img src="images/ins_gal6.jpg" alt="Chicken nuggets" />
-                </a>
-              </div>
-              <div className="desc">
-                <div className="name">
-                  <div className="value">Chicken nuggets</div>
-                </div>
-                <div className="subname">
-                  <div className="value">fast food</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all hot-coffee">
-            <div
-              className="gp-gallery-item element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              <div className="image gp-image-hover">
-                <a href="images/grid_gal1.jpg" className="has-popup-gallery">
-                  <img src="images/grid_gal1.jpg" alt="Black coffee" />
-                </a>
-              </div>
-              <div className="desc">
-                <div className="name">
-                  <div className="value">Black coffee</div>
-                </div>
-                <div className="subname">
-                  <div className="value">hot coffee</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all dinner-menu">
-            <div
-              className="gp-gallery-item element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              <div className="image gp-image-hover">
-                <a href="images/menu_r4.jpg" className="has-popup-gallery">
-                  <img src="images/menu_r4.jpg" alt="Spaghetti" />
-                </a>
-              </div>
-              <div className="desc">
-                <div className="name">
-                  <div className="value">Spaghetti</div>
-                </div>
-                <div className="subname">
-                  <div className="value">dinner menu</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="gp-gallery-col col-xs-12 col-sm-12 col-md-6 col-lg-4 all dinner-menu">
-            <div
-              className="gp-gallery-item element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              <div className="image gp-image-hover">
-                <a href="images/menu_r6.jpg" className="has-popup-gallery">
-                  <img src="images/menu_r6.jpg" alt="Sea Fish" />
-                </a>
-              </div>
-              <div className="desc">
-                <div className="name">
-                  <div className="value">Sea Fish</div>
-                </div>
-                <div className="subname">
-                  <div className="value">dinner menu</div>
-                </div>
-              </div>
-            </div>
-          </div>
+            Beverages
+          </a>
+        </div> */}
+        
+        <div className="gp-gallery-items row" ref={containerRef}>
+          {galleryData.map((item) => (
+            <GalleryItem key={item.id} item={item} />
+          ))}
         </div>
       </div>
     </section>

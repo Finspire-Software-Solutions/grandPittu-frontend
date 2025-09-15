@@ -16,7 +16,7 @@ const Contacts = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  {/*<img src="images/contact_icon1.png" alt="" />*/}
+                  {/*<img src="images/contact_icon1.webp" alt="" />*/}
                   <i className="las la-map-marked-alt" />
                 </div>
                 <div className="desc">
@@ -38,7 +38,7 @@ const Contacts = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  {/*<img src="images/contact_icon2.png" alt="" />*/}
+                  {/*<img src="images/contact_icon2.webp" alt="" />*/}
                   <i className="las la-envelope-open-text" />
                 </div>
                 <div className="desc">
@@ -62,7 +62,7 @@ const Contacts = () => {
                 data-animate="active"
               >
                 <div className="image">
-                  {/*<img src="images/contact_icon3.png" alt="" />*/}
+                  {/*<img src="images/contact_icon3.webp" alt="" />*/}
                   <i className="las la-headset" />
                 </div>
                 <div className="desc">
@@ -99,7 +99,7 @@ const Contacts = () => {
         </div>
       </section>
       {/* Section Insta Carousel */}
-      <InstaCarousel />
+      {/* <InstaCarousel /> */}
       
     </Layouts>
   );

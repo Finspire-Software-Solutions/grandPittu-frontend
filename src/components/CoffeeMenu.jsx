@@ -94,7 +94,7 @@ const CoffeeMenu = () => {
         </div>
         <div
           className="gp-menu-items"
-          style={{ backgroundImage: "url(images/menu_logo.png)" }}
+          style={{ backgroundImage: "url(images/menu_logo.webp)" }}
         >
           <div className="row all-menu-items">
             <div className="gp-menu-item-col col-xs-12 col-sm-12 col-md-12 col-lg-6 all hot-coffee">
@@ -103,8 +103,8 @@ const CoffeeMenu = () => {
                 data-animate="active"
               >
                 <div className="image gp-image-hover">
-                  <a href="images/menu1.jpg" className="has-popup-image">
-                    <img src="images/menu1.jpg" alt="image" />
+                  <a href="images/menu1.webp" className="has-popup-image">
+                    <img src="images/menu1.webp" alt="image" />
                   </a>
                 </div>
                 <div className="desc">
@@ -120,8 +120,8 @@ const CoffeeMenu = () => {
                 data-animate="active"
               >
                 <div className="image gp-image-hover">
-                  <a href="images/menu2.jpg" className="has-popup-image">
-                    <img src="images/menu2.jpg" alt="image" />
+                  <a href="images/menu2.webp" className="has-popup-image">
+                    <img src="images/menu2.webp" alt="image" />
                   </a>
                 </div>
                 <div className="desc">
@@ -137,8 +137,8 @@ const CoffeeMenu = () => {
                 data-animate="active"
               >
                 <div className="image gp-image-hover">
-                  <a href="images/menu3.jpg" className="has-popup-image">
-                    <img src="images/menu3.jpg" alt="image" />
+                  <a href="images/menu3.webp" className="has-popup-image">
+                    <img src="images/menu3.webp" alt="image" />
                   </a>
                 </div>
                 <div className="desc">
@@ -154,8 +154,8 @@ const CoffeeMenu = () => {
                 data-animate="active"
               >
                 <div className="image gp-image-hover">
-                  <a href="images/menu4.jpg" className="has-popup-image">
-                    <img src="images/menu4.jpg" alt="image" />
+                  <a href="images/menu4.webp" className="has-popup-image">
+                    <img src="images/menu4.webp" alt="image" />
                   </a>
                 </div>
                 <div className="desc">
@@ -171,8 +171,8 @@ const CoffeeMenu = () => {
                 data-animate="active"
               >
                 <div className="image gp-image-hover">
-                  <a href="images/menu5.jpg" className="has-popup-image">
-                    <img src="images/menu5.jpg" alt="image" />
+                  <a href="images/menu5.webp" className="has-popup-image">
+                    <img src="images/menu5.webp" alt="image" />
                   </a>
                 </div>
                 <div className="desc">
@@ -188,8 +188,8 @@ const CoffeeMenu = () => {
                 data-animate="active"
               >
                 <div className="image gp-image-hover">
-                  <a href="images/menu6.jpg" className="has-popup-image">
-                    <img src="images/menu6.jpg" alt="image" />
+                  <a href="images/menu6.webp" className="has-popup-image">
+                    <img src="images/menu6.webp" alt="image" />
                   </a>
                 </div>
                 <div className="desc">
@@ -205,8 +205,8 @@ const CoffeeMenu = () => {
                 data-animate="active"
               >
                 <div className="image gp-image-hover">
-                  <a href="images/ins_gal1.jpg" className="has-popup-image">
-                    <img src="images/ins_gal1.jpg" alt="image" />
+                  <a href="images/ins_gal1.webp" className="has-popup-image">
+                    <img src="images/ins_gal1.webp" alt="image" />
                   </a>
                 </div>
                 <div className="desc">
@@ -224,8 +224,8 @@ const CoffeeMenu = () => {
                 data-animate="active"
               >
                 <div className="image gp-image-hover">
-                  <a href="images/ins_gal3.jpg" className="has-popup-image">
-                    <img src="images/ins_gal3.jpg" alt="image" />
+                  <a href="images/ins_gal3.webp" className="has-popup-image">
+                    <img src="images/ins_gal3.webp" alt="image" />
                   </a>
                 </div>
                 <div className="desc">

@@ -10,7 +10,7 @@ const Footer = () => {
               data-animate="active"
             >
               <a href="index.html">
-                <img src="images/logo.png" alt="image" />
+                <img src="images/logo.webp" alt="image" />
               </a>
             </div>
           </div>
@@ -70,50 +70,50 @@ const Footer = () => {
               <ul>
                 <li>
                   <a
-                    href="images/grid_gal1.jpg"
+                    href="images/grid_gal1.webp"
                     className="gp-image-hover has-popup-image"
                   >
-                    <img src="images/grid_gal1.jpg" alt="image" />
+                    <img src="images/grid_gal1.webp" alt="image" />
                   </a>
                 </li>
                 <li>
                   <a
-                    href="images/grid_gal2.jpg"
+                    href="images/grid_gal2.webp"
                     className="gp-image-hover has-popup-image"
                   >
-                    <img src="images/grid_gal2.jpg" alt="image" />
+                    <img src="images/grid_gal2.webp" alt="image" />
                   </a>
                 </li>
                 <li>
                   <a
-                    href="images/grid_gal3.jpg"
+                    href="images/grid_gal3.webp"
                     className="gp-image-hover has-popup-image"
                   >
-                    <img src="images/grid_gal3.jpg" alt="image" />
+                    <img src="images/grid_gal3.webp" alt="image" />
                   </a>
                 </li>
                 <li>
                   <a
-                    href="images/grid_gal4.jpg"
+                    href="images/grid_gal4.webp"
                     className="gp-image-hover has-popup-image"
                   >
-                    <img src="images/grid_gal4.jpg" alt="image" />
+                    <img src="images/grid_gal4.webp" alt="image" />
                   </a>
                 </li>
                 <li>
                   <a
-                    href="images/grid_gal5.jpg"
+                    href="images/grid_gal5.webp"
                     className="gp-image-hover has-popup-image"
                   >
-                    <img src="images/grid_gal5.jpg" alt="image" />
+                    <img src="images/grid_gal5.webp" alt="image" />
                   </a>
                 </li>
                 <li>
                   <a
-                    href="images/grid_gal6.jpg"
+                    href="images/grid_gal6.webp"
                     className="gp-image-hover has-popup-image"
                   >
-                    <img src="images/grid_gal1.jpg" alt="image" />
+                    <img src="images/grid_gal1.webp" alt="image" />
                   </a>
                 </li>
               </ul>

@@ -1,0 +1,406 @@
+{
+  "cms_configuration_prompt": {
+    "project_overview": {
+      "name": "Grand Pittu Restaurant Frontend",
+      "technology": "React + Vite",
+      "current_state": "Static website with hardcoded content",
+      "backend": "Spring Boot REST API",
+      "backend_repo": "https://github.com/Finspire-Software-Solutions/grandPittu-backend.git",
+      "cms_repo" : "https://github.com/Finspire-Software-Solutions/grandPittu-admin.git"
+    },
+    "site_structure": {
+      "pages": [
+        {
+          "name": "Home (Index)",
+          "route": "/",
+          "sections": [
+            {
+              "name": "Hero Slider",
+              "type": "carousel",
+              "configurable_content": ["background_images", "titles", "subtitles", "button_texts", "button_links"],
+              "current_hardcoded": ["Welcome to the Grandpittu", "Northern Flavours. Colombo Vibe.", "Jaffna's Heart in Every Bite", "True Tamil Food from the North"]
+            },
+            {
+              "name": "About Section",
+              "type": "text_with_image",
+              "configurable_content": ["title", "description", "image", "button_text", "button_link"]
+            },
+            {
+              "name": "Menu Preview",
+              "type": "menu_grid",
+              "configurable_content": ["section_title", "menu_items_display", "view_all_button"]
+            },
+            {
+              "name": "Testimonials",
+              "type": "carousel",
+              "configurable_content": ["customer_reviews", "ratings", "names"]
+            },
+            {
+              "name": "Gallery Preview",
+              "type": "image_grid",
+              "configurable_content": ["section_title", "selected_images", "view_all_button"]
+            },
+            {
+              "name": "Contact Info",
+              "type": "contact_details",
+              "configurable_content": ["phone", "email", "address", "social_links"]
+            }
+          ]
+        },
+        {
+          "name": "About",
+          "route": "/about",
+          "sections": [
+            {
+              "name": "Hero Section",
+              "type": "hero_with_image",
+              "configurable_content": ["title", "subtitle", "background_image", "description"]
+            },
+            {
+              "name": "Story Sections",
+              "type": "timeline_or_cards",
+              "configurable_content": ["year", "title", "description", "image"]
+            },
+            {
+              "name": "Team Section",
+              "type": "team_members",
+              "configurable_content": ["name", "position", "image", "bio"]
+            }
+          ]
+        },
+        {
+          "name": "Menu",
+          "route": "/menu",
+          "sections": [
+            {
+              "name": "Menu Categories",
+              "type": "filterable_grid",
+              "configurable_content": ["categories", "items_per_category", "pricing", "descriptions", "images"]
+            },
+            {
+              "name": "Special Items",
+              "type": "featured_items",
+              "configurable_content": ["featured_items", "special_offers"]
+            }
+          ]
+        },
+        {
+          "name": "Gallery",
+          "route": "/gallery",
+          "sections": [
+            {
+              "name": "Image Gallery",
+              "type": "masonry_grid",
+              "configurable_content": ["images", "categories", "captions"]
+            }
+          ]
+        },
+        {
+          "name": "Contacts",
+          "route": "/contacts",
+          "sections": [
+            {
+              "name": "Contact Form",
+              "type": "contact_form",
+              "configurable_content": ["form_fields", "success_message"]
+            },
+            {
+              "name": "Location/Map",
+              "type": "map_embed",
+              "configurable_content": ["address", "map_coordinates"]
+            },
+            {
+              "name": "Contact Details",
+              "type": "contact_info",
+              "configurable_content": ["phone", "email", "hours", "social_links"]
+            }
+          ]
+        },
+        {
+          "name": "Reservation",
+          "route": "/reservation",
+          "sections": [
+            {
+              "name": "Reservation Form",
+              "type": "booking_form",
+              "configurable_content": ["form_fields", "validation_messages", "success_message"]
+            }
+          ]
+        }
+      ],
+      "global_elements": [
+        {
+          "name": "Header/Navigation",
+          "configurable_content": ["logo", "menu_items", "contact_info"]
+        },
+        {
+          "name": "Footer",
+          "configurable_content": ["copyright", "social_links", "contact_info", "links"]
+        }
+      ]
+    },
+    "backend_api_endpoints": {
+      "menu": {
+        "get_all": "GET /menu",
+        "get_by_id": "GET /menu/{id}",
+        "create": "POST /menu",
+        "update": "PUT /menu/{id}",
+        "delete": "DELETE /menu/{id}",
+        "download_pdf": "GET /menu/download",
+        "view_pdf": "GET /menu/view"
+      },
+      "booking": {
+        "create_reservation": "POST /book"
+      },
+      "contact": {
+        "submit_contact": "POST /contact",
+        "get_all": "GET /contact/getAll",
+        "get_by_id": "GET /contact/{id}",
+        "delete": "DELETE /contact/{id}"
+      },
+      "admin_booking": {
+        "manage_booking": "POST /admin/manage-booking",
+        "get_accepted": "GET /admin/getAllBookingStatusAccepted",
+        "get_pending": "GET /admin/getAllBookingStatusPending",
+        "get_other_status": "GET /admin/getAllBookingOtherStatus"
+      }
+    },
+    "cms_data_structure": {
+      "content_types": [
+        {
+          "type": "page_content",
+          "fields": [
+            {"name": "page_id", "type": "string", "required": true},
+            {"name": "section_id", "type": "string", "required": true},
+            {"name": "title", "type": "string"},
+            {"name": "subtitle", "type": "string"},
+            {"name": "description", "type": "text"},
+            {"name": "image_url", "type": "string"},
+            {"name": "button_text", "type": "string"},
+            {"name": "button_link", "type": "string"},
+            {"name": "is_active", "type": "boolean", "default": true}
+          ]
+        },
+        {
+          "type": "hero_slider",
+          "fields": [
+            {"name": "slide_id", "type": "string", "required": true},
+            {"name": "background_image", "type": "string", "required": true},
+            {"name": "title", "type": "string", "required": true},
+            {"name": "subtitle", "type": "string"},
+            {"name": "button_primary_text", "type": "string"},
+            {"name": "button_primary_link", "type": "string"},
+            {"name": "button_secondary_text", "type": "string"},
+            {"name": "button_secondary_link", "type": "string"},
+            {"name": "order", "type": "integer", "default": 0},
+            {"name": "is_active", "type": "boolean", "default": true}
+          ]
+        },
+        {
+          "type": "gallery_image",
+          "fields": [
+            {"name": "image_id", "type": "string", "required": true},
+            {"name": "image_url", "type": "string", "required": true},
+            {"name": "caption", "type": "string"},
+            {"name": "category", "type": "string"},
+            {"name": "alt_text", "type": "string"},
+            {"name": "order", "type": "integer", "default": 0},
+            {"name": "is_active", "type": "boolean", "default": true}
+          ]
+        },
+        {
+          "type": "contact_info",
+          "fields": [
+            {"name": "type", "type": "string", "required": true}, // phone, email, address, social
+            {"name": "label", "type": "string", "required": true},
+            {"name": "value", "type": "string", "required": true},
+            {"name": "icon", "type": "string"},
+            {"name": "is_active", "type": "boolean", "default": true}
+          ]
+        },
+        {
+          "type": "testimonial",
+          "fields": [
+            {"name": "testimonial_id", "type": "string", "required": true},
+            {"name": "customer_name", "type": "string", "required": true},
+            {"name": "review_text", "type": "text", "required": true},
+            {"name": "rating", "type": "integer", "min": 1, "max": 5},
+            {"name": "customer_image", "type": "string"},
+            {"name": "order", "type": "integer", "default": 0},
+            {"name": "is_active", "type": "boolean", "default": true}
+          ]
+        }
+      ]
+    },
+    "implementation_requirements": {
+      "context_provider": {
+        "name": "CMSContext",
+        "purpose": "Manage CMS data state across the application",
+        "methods": [
+          "fetchPageContent(pageId)",
+          "fetchHeroSlides()",
+          "fetchGalleryImages()",
+          "fetchTestimonials()",
+          "fetchContactInfo()",
+          "updateContent(contentType, data)"
+        ]
+      },
+      "api_service": {
+        "name": "CMSApiService",
+        "purpose": "Handle all API calls to backend CMS endpoints",
+        "base_url": "http://localhost:8080/api", // Adjust based on backend config
+        "methods": [
+          "get(endpoint)",
+          "post(endpoint, data)",
+          "put(endpoint, data)",
+          "delete(endpoint)"
+        ]
+      },
+      "component_modifications": {
+        "replace_hardcoded_content": true,
+        "add_loading_states": true,
+        "add_error_handling": true,
+        "maintain_existing_styles": true,
+        "preserve_responsiveness": true
+      },
+      "data_flow": {
+        "step_1": "Create CMS context and API service",
+        "step_2": "Replace hardcoded strings with CMS data calls",
+        "step_3": "Add loading and error states to components",
+        "step_4": "Implement fallback content for API failures",
+        "step_5": "Test all pages and components",
+        "step_6": "Optimize performance with proper caching"
+      }
+    },
+    "performance_optimization_requirements": {
+      "current_issues": [
+        "Large image files without optimization",
+        "No lazy loading for images",
+        "No code splitting",
+        "No caching strategies",
+        "Heavy CSS/JS bundles"
+      ],
+      "optimization_tasks": [
+        {
+          "task": "Image Optimization",
+          "actions": [
+            "Implement lazy loading for all images",
+            "Convert images to WebP format with fallbacks",
+            "Compress images without quality loss",
+            "Use responsive images with srcset",
+            "Implement image CDN if possible"
+          ]
+        },
+        {
+          "task": "Code Splitting",
+          "actions": [
+            "Split routes into separate chunks",
+            "Lazy load non-critical components",
+            "Use dynamic imports for heavy libraries",
+            "Implement tree shaking"
+          ]
+        },
+        {
+          "task": "Caching Strategy",
+          "actions": [
+            "Implement service worker for caching",
+            "Cache API responses",
+            "Use browser caching headers",
+            "Implement stale-while-revalidate pattern"
+          ]
+        },
+        {
+          "task": "Bundle Optimization",
+          "actions": [
+            "Minify CSS and JS",
+            "Remove unused CSS",
+            "Optimize font loading",
+            "Compress assets"
+          ]
+        },
+        {
+          "task": "Performance Monitoring",
+          "actions": [
+            "Add performance metrics",
+            "Monitor Core Web Vitals",
+            "Track loading times",
+            "Identify bottlenecks"
+          ]
+        }
+      ],
+      "constraints": {
+        "preserve_styles": true,
+        "preserve_layout": true,
+        "preserve_content": true,
+        "preserve_responsiveness": true,
+        "no_new_dependencies_unless_necessary": true
+      }
+    },
+    "reservation_integration": {
+      "current_state": "Form using Formspree",
+      "required_changes": [
+        {
+          "task": "Update ReservationForm component",
+          "actions": [
+            "Replace Formspree URL with backend API endpoint",
+            "Update form submission logic",
+            "Add proper error handling",
+            "Add success/error messages",
+            "Integrate with existing backend validation"
+          ]
+        },
+        {
+          "task": "API Integration",
+          "endpoint": "POST /book",
+          "request_body": {
+            "username": "string",
+            "email": "string",
+            "phoneNo": "string",
+            "date": "LocalDate",
+            "time": "string",
+            "tableNo": "integer (optional)",
+            "guestNo": "integer",
+            "message": "string (optional)"
+          },
+          "response": {
+            "username": "string",
+            "email": "string",
+            "phoneNo": "string",
+            "date": "LocalDate",
+            "time": "string",
+            "tableNo": "integer"
+          }
+        }
+      ]
+    },
+    "implementation_priority": {
+      "phase_1": ["Create CMS context and API service", "Setup basic data fetching"],
+      "phase_2": ["Replace hardcoded content in Home page", "Implement hero slider CMS"],
+      "phase_3": ["Make About page CMS-configurable", "Add gallery CMS integration"],
+      "phase_4": ["Integrate menu with backend API", "Make contact page dynamic"],
+      "phase_5": ["Integrate reservation with backend", "Add testimonials CMS"],
+      "phase_6": ["Performance optimization", "Testing and refinement"]
+    },
+    "success_criteria": {
+      "cms_functionality": [
+        "All text content editable through CMS",
+        "Images manageable through CMS",
+        "Menu items dynamically loaded",
+        "Contact information configurable",
+        "Testimonials manageable"
+      ],
+      "performance": [
+        "Page load time < 3 seconds",
+        "First Contentful Paint < 1.5 seconds",
+        "Lighthouse score > 90",
+        "Mobile performance optimized"
+      ],
+      "backend_integration": [
+        "Reservation form submits to backend",
+        "Menu data loads from API",
+        "Contact form sends to backend",
+        "Error handling implemented"
+      ]
+    }
+  }
+}

@@ -68,7 +68,7 @@ const Header = () => {
             {/* logo */}
             <div className="spinner-logo">
               <Link to="/">
-                <img src="images/logo.png" alt="image" />
+                <img src="images/logo.webp" alt="image" />
               </Link>
             </div>
           </div>
@@ -86,6 +86,9 @@ const Header = () => {
 
                 <li>
                   <Link to="/reservation">Reservation</Link>
+                </li>
+                <li>
+                  <Link to="/gallery">Gallery</Link>
                 </li>
                 <li>
                   <Link to="/about">About</Link>
@@ -106,7 +109,7 @@ const Header = () => {
               <span />
             </a>
             {/* btn */}
-            <Link to="reservation" className="gp-btn h-btn">
+            <Link to="/reservation" className="gp-btn h-btn">
               <span>Book a table</span>
             </Link>
           </div>
@@ -129,6 +132,10 @@ const Header = () => {
                   <Link to="/reservation">Reservation</Link>
                 </li>
                 <li>
+                  <Link to="/gallery">Gallery</Link>
+                </li>
+
+                <li>
                   <Link to="/about">About</Link>
                 </li>
                 <li>
@@ -141,7 +148,7 @@ const Header = () => {
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
               {/* mobile btn */}
-              <Link to="reservation" className="gp-btn h-btn">
+              <Link to="/reservation" className="gp-btn h-btn">
                 <span>Book a table</span>
                 <i className="fas fa-chevron-right" />
               </Link>
