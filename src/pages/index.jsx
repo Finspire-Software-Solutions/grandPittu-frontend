@@ -15,6 +15,10 @@ import TestimonialsCarousel from "@/components/sliders/TestimonialsCarousel";
 import MainSlider from "@/components/sliders/MainSlider";
 import Layouts from "@/layouts/Layouts";
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const Index = () => {
   useGlobalData(); // Apply global styles
@@ -32,8 +36,23 @@ const Index = () => {
       {/* Section Started Slider */}
       <section className="section gp-started-slider">
         <Swiper
-          {...sliderProps.mainSliderSelector}
           className="swiper-container"
+          modules={[Autoplay, Navigation]}
+          slidesPerView={1}
+          spaceBetween={0}
+          loop={true}
+          speed={1000}
+          parallax={true}
+          watchSlidesProgress={true}
+          navigation={{
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+          }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: false,
+          }}
         >
           <div className="swiper-wrapper">
             <SwiperSlide className="swiper-slide">
