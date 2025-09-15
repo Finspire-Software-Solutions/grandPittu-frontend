@@ -1,11 +1,32 @@
+import { 
+  useGlobalData, 
+  usePageContent, 
+  useMenuData, 
+  useServicesData 
+} from "@/hooks/useCMSData";
+import { 
+  LoadingSpinner, 
+  CMSTitles, 
+  CMSButton, 
+  CMSContent,
+  CMSImage
+} from "@/components/cms/CMSComponents";
 import TestimonialsCarousel from "@/components/sliders/TestimonialsCarousel";
-
+import MainSlider from "@/components/sliders/MainSlider";
 import Layouts from "@/layouts/Layouts";
-import { sliderProps } from "@/utils/sliderProps";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-const Index2 = () => {
+const Index = () => {
+  useGlobalData(); // Apply global styles
+  const { content: homeContent, loading: homeLoading } = usePageContent('home');
+  const { content: ctaContent, loading: ctaLoading } = usePageContent('home', 'cta');
+  const { menuItems, categories, loading: menuLoading } = useMenuData();
+  const { services, loading: servicesLoading } = useServicesData();
+
+  const loading = homeLoading || ctaLoading || menuLoading || servicesLoading;
+
+  if (loading) return <LoadingSpinner message="Loading page content..." />;
+
   return (
     <Layouts>
       {/* Section Started Slider */}
@@ -154,54 +175,27 @@ const Index2 = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-5 offset-lg-1 align-self-center">
-              <div className="gp-titles">
-                <div
-                  className="gp-subtitle element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  Popular Categories
-                </div>
-                <h3
-                  className="gp-title element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  Choose Your Favourite Food <br />
-                  From Categories
-                </h3>
-              </div>
-              <div
-                className="gp-text element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <p>
-                  Experience the rich heritage of Sri Lankan Tamil cuisine through our most beloved categories. From the time-honored flavors of traditional pittu to vibrant vegetarian dishes, fresh seafood platters, and festive chicken specialties, every bite celebrates the warmth and culture of the Tamil community. Discover authentic tastes and traditions—explore our menu and savor the spirit of the North!
-                </p>
-              </div>
-              <Link
-                href="menu-restaurant"
+              <CMSContent 
+                content={homeContent?.attributes?.categoryDescription || "Explore our diverse menu of authentic Tamil dishes, each prepared with traditional recipes passed down through generations."}
+              />
+              <CMSButton 
+                text={homeContent?.attributes?.categoryButtonText || "explore more Category"}
+                link="/menu-restaurant"
                 className="gp-btn element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <span>explore more Category</span>
-                <i className="fas fa-chevron-right" />
-              </Link>
+              />
             </div>
           </div>
         </div>
       </section>
+
       {/* Section Menu */}
       <section className="section gp-menu-classic section-bg">
         <div className="container">
-          <div className="gp-titles align-center">
-            <div className="gp-subtitle element-anim-1 scroll-animate" data-animate="active">
-              Jaffna Tamil Specialties
-            </div>
-            <h3 className="gp-title element-anim-1 scroll-animate" data-animate="active">
-              Discover the Flavors of Northern Sri Lanka
-            </h3>
-          </div>
+          <CMSTitles 
+            subtitle={homeContent?.attributes?.menuSubtitle || "Jaffna Tamil Specialties"}
+            title={homeContent?.attributes?.menuTitle || "Discover the Flavors of Northern Sri Lanka"}
+            alignment="align-center"
+          />
           <div className="gp-menu-grid" style={{ background: "var(--gp-bg, #fff)" }}>
             <div className="gp-menu-row">
               <div className="gp-menu-card">
@@ -250,8 +244,14 @@ const Index2 = () => {
               </div>
             </div>
           </div>
+          <div className="align-center">
+            <CMSButton 
+              text={homeContent?.attributes?.menuButtonText || "View Full Menu"}
+              link="/menu-restaurant"
+              className="gp-btn"
+            />
+          </div>
         </div>
-        
       </section>
 
       {/* Section About-2 */}
@@ -307,13 +307,9 @@ const Index2 = () => {
               <Link
                 href="about"
                 className="gp-btn element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <span>explore more us</span>
-                <i className="fas fa-chevron-right" />
-              </Link>
+              />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 offset-lg-1 align-self-center">
+            <div className="col-lg-6 offset-lg-1 align-self-center">
               <div className="gp-services-items-2 row">
                 <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                   <div className="gp-services-item-2 element-anim-1 scroll-animate" data-animate="active">
@@ -364,9 +360,10 @@ const Index2 = () => {
           </div>
         </div>
       </section>
+
       {/* Section Testimonials Carousel */}
       <TestimonialsCarousel />
-     
+
       {/* Section CTA */}
       <section
         className="section gp-cta gp-parallax"
@@ -374,39 +371,25 @@ const Index2 = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-8">
-              <div className="gp-titles">
-                <div
-                  className="gp-subtitle element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  Need a Table On Grandpittu
-                </div>
-                <h3
-                  className="gp-title-2 element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  Booking Table For Your &amp; Family Members
-                </h3>
-              </div>
+            <div className="col-lg-8">
+              <CMSTitles 
+                subtitle={ctaContent?.attributes?.subtitle || "Need a Table On Grandpittu"}
+                title={ctaContent?.attributes?.title || "Booking Table For Your & Family Members"}
+                className="gp-titles"
+              />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 align-self-center align-right">
-              <Link
-                href="reservation"
+            <div className="col-lg-4 align-self-center align-right">
+              <CMSButton 
+                text={ctaContent?.attributes?.buttonText || "booking table"}
+                link="/reservation"
                 className="gp-btn element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <span>booking table</span>
-                <i className="fas fa-chevron-right" />
-              </Link>
+              />
             </div>
           </div>
         </div>
       </section>
-      {/* Section Insta Carousel
-      <InstaCarousel /> */}
-      
     </Layouts>
   );
 };
-export default Index2;
+
+export default Index;

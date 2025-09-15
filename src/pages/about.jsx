@@ -1,14 +1,36 @@
+import { usePageContent } from "@/hooks/useCMSData";
+import { LoadingSpinner, ErrorMessage, CMSTitles, CMSButton, CMSContent, CMSImage } from "@/components/cms/CMSComponents";
 import VideoPlayer from "@/components/VideoPlayer";
 import TestimonialsCarousel from "@/components/sliders/TestimonialsCarousel";
 import Layouts from "@/layouts/Layouts";
-import { Link } from "react-router-dom";
 
 const About = () => {
+  const { content: aboutContent, loading: aboutLoading } = usePageContent('about');
+  const { content: ctaContent, loading: ctaLoading } = usePageContent('about', 'cta');
+
+  const loading = aboutLoading || ctaLoading;
+
+  if (loading) return <LoadingSpinner message="Loading about page..." />;
+
   return (
     <Layouts>
-     
-      {/* Section About-Grandpittu */}
-      <section className="section gp-choose gp-choose-2">
+      {/* Section Started Inner */}
+      <section className="section gp-started-inner">
+        <div 
+          className="gp-parallax-bg js-parallax" 
+          style={{ 
+            backgroundImage: `url(${aboutContent?.attributes?.backgroundImage?.url || "images/about_inner_bg.jpg"})`
+          }} 
+        />
+        <div className="container">
+          <h1 className="gp-h-title text-anim-1 scroll-animate" data-splitting="chars" data-animate="active">
+            About Us
+          </h1>
+        </div>
+      </section>
+
+      {/* Section About */}
+      <section className="section gp-about">
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-5 align-self-center">
@@ -97,11 +119,7 @@ const About = () => {
               <Link
                 href="/menu-restaurant"
                 className="gp-btn element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <span>View Our Menu</span>
-                <i className="fas fa-chevron-right" />
-              </Link>
+              />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 offset-lg-1">
               <div
@@ -114,6 +132,7 @@ const About = () => {
           </div>
         </div>
       </section>
+
       {/* Section Video */}
       <section className="section gp-video">
         <div className="container">
@@ -189,6 +208,7 @@ const About = () => {
      
       {/* Section Testimonials Carousel */}
       <TestimonialsCarousel />
+
       {/* Section CTA */}
       <section
         className="section gp-cta gp-parallax"
@@ -196,31 +216,18 @@ const About = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-8">
-              <div className="gp-titles">
-                <div
-                  className="gp-subtitle element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  Need a Table On Coffee House
-                </div>
-                <h3
-                  className="gp-title element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  Booking Table For Your &amp; Family Members
-                </h3>
-              </div>
+            <div className="col-lg-8">
+              <CMSTitles 
+                subtitle={ctaContent?.attributes?.subtitle || "Experience Authentic Tamil Cuisine"}
+                title={ctaContent?.attributes?.title || "Book Your Table Today"}
+              />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 align-self-center align-right">
-              <Link
-                href="reservation"
+            <div className="col-lg-4 align-self-center align-right">
+              <CMSButton 
+                text={ctaContent?.attributes?.buttonText || "booking table"}
+                link="/reservation"
                 className="gp-btn element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <span>booking table</span>
-                <i className="fas fa-chevron-right" />
-              </Link>
+              />
             </div>
           </div>
         </div>
@@ -228,4 +235,5 @@ const About = () => {
     </Layouts>
   );
 };
+
 export default About;

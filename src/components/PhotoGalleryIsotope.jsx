@@ -30,8 +30,7 @@ const GalleryItem = memo(({ item }) => {
 
 GalleryItem.displayName = 'GalleryItem';
 
-const PhotoGalleryIsotope = () => {
-  // Isotope
+const PhotoGalleryIsotope = ({ images = [] }) => {
   const isotope = useRef();
   const containerRef = useRef();
   const [filterKey, setFilterKey] = useState("*");
@@ -177,4 +176,5 @@ const PhotoGalleryIsotope = () => {
     </section>
   );
 };
+
 export default PhotoGalleryIsotope;

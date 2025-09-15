@@ -1,16 +1,23 @@
+import { useGalleryData, usePageContent } from "@/hooks/useCMSData";
+import { LoadingSpinner, ErrorMessage, CMSTitles, CMSButton } from "@/components/cms/CMSComponents";
 import Layouts from "@/layouts/Layouts";
-import { Link } from "react-router-dom";
 import PhotoGalleryIsotope from "@/components/PhotoGalleryIsotope";
 
-
-
-
 const Gallery = () => {
+  const { galleryImages, loading: galleryLoading, error: galleryError } = useGalleryData();
+  const { content: ctaContent, loading: ctaLoading } = usePageContent('gallery', 'cta');
+
+  const loading = galleryLoading || ctaLoading;
+
+  if (loading) return <LoadingSpinner message="Loading gallery..." />;
+  if (galleryError) return <ErrorMessage error={galleryError} />;
+
   return (
     <Layouts>
 
       {/* Section Gallery */}
-      <PhotoGalleryIsotope />
+      <PhotoGalleryIsotope images={galleryImages} />
+
       {/* Section CTA */}
       <section
         className="section gp-cta gp-parallax"
@@ -18,31 +25,18 @@ const Gallery = () => {
       >
         <div className="container">
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-8">
-              <div className="gp-titles">
-                <div
-                  className="gp-subtitle element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  Need a Table On Coffee House
-                </div>
-                <h3
-                  className="gp-title element-anim-1 scroll-animate"
-                  data-animate="active"
-                >
-                  Booking Table For Your &amp; Family Members
-                </h3>
-              </div>
+            <div className="col-lg-8">
+              <CMSTitles 
+                subtitle={ctaContent?.attributes?.subtitle || "Need a Table On Coffee House"}
+                title={ctaContent?.attributes?.title || "Booking Table For Your & Family Members"}
+              />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4 align-self-center align-right">
-              <Link
-                href="reservation"
+            <div className="col-lg-4 align-self-center align-right">
+              <CMSButton 
+                text={ctaContent?.attributes?.buttonText || "booking table"}
+                link="/reservation"
                 className="gp-btn element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <span>booking table</span>
-                <i className="fas fa-chevron-right" />
-              </Link>
+              />
             </div>
           </div>
         </div>
@@ -117,4 +111,5 @@ const Gallery = () => {
     </Layouts>
   );
 };
+
 export default Gallery;
