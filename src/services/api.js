@@ -5,7 +5,8 @@
 
 class ApiService {
   constructor() {
-    this.baseURL = import.meta.env.VITE_CMS_URL || 'http://localhost:3001';
+    // Use the same environment variable as apiService.js
+    this.baseURL = import.meta.env.VITE_API_BASE_URL || 'https://grandpittu-backend.onrender.com';
     this.cache = new Map();
     this.cacheTimeout = 5 * 60 * 1000; // 5 minutes
   }
