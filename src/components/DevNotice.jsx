@@ -10,25 +10,11 @@ export const DevNotice = () => {
     // Check if we're in development mode and backend is not available
     const checkBackend = async () => {
       try {
-        // In development, use proxy path; in production, use full URL
-        const isDev = import.meta.env.DEV;
-        const url = isDev ? '/api/v1/auth/authendicate' : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}/auth/authendicate`;
-        
-        const response = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: 'jana61jr@gmail.com',
-            password: 'admin123'
-          })
-        });
-        // Accept any response (including 400, 401, 404) as long as server is responding
-        // Only show notice if server is completely unreachable
+        const response = await fetch('http://localhost:1337/api/global');
+        if (!response.ok) {
+          setShow(true);
+        }
       } catch (error) {
-        // Only show if there's a network error (server not reachable)
-        console.log('Backend check error:', error);
         setShow(true);
       }
     };
@@ -45,15 +31,15 @@ export const DevNotice = () => {
       <div className="dev-notice-content">
         <h4>🚧 Development Mode</h4>
         <p>
-          The Grand Pittu backend is not available. The app is showing fallback data.
+          The Strapi CMS backend is not running. The app is showing fallback data.
           <br />
-          Backend URL: <code>{import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001'}</code>
+          To see live CMS data, start the Strapi backend at <code>http://localhost:1337</code>
         </p>
         <button onClick={() => setShow(false)} className="btn btn-sm btn-outline-light">
           ✕ Dismiss
         </button>
       </div>
-      <style>{`
+      <style jsx>{`
         .dev-notice {
           position: fixed;
           top: 0;
