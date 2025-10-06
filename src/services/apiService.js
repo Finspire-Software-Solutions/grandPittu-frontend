@@ -102,7 +102,7 @@ class APIService {
     console.log('Sending reservation payload:', payload);
     
     try {
-      return await this.makeRequest('/api/v1/book', 'POST', payload);
+      return await this.makeRequest('/v1/book', 'POST', payload);
     } catch (error) {
       // If CORS fails, provide a more user-friendly message
       if (error.message.includes('Unable to connect to server')) {
@@ -125,7 +125,7 @@ class APIService {
     console.log('Sending contact payload:', payload);
     
     try {
-      return await this.makeRequest('/api/v1/contact', 'POST', payload);
+      return await this.makeRequest('/v1/contact', 'POST', payload);
     } catch (error) {
       // If CORS fails, provide a more user-friendly message
       if (error.message.includes('Unable to connect to server')) {

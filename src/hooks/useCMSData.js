@@ -60,9 +60,13 @@ export const useGlobalData = () => {
  * Hook for page-specific content
  */
 export const usePageContent = (pageName, sectionName = null) => {
+  // Properly encode query parameters to avoid URL parsing errors
+  const encodedPageName = encodeURIComponent(pageName);
+  const encodedSectionName = sectionName ? encodeURIComponent(sectionName) : null;
+  
   const endpoint = sectionName 
-    ? `page-contents?filters[pageName][$eq]=${pageName}&filters[sectionName][$eq]=${sectionName}`
-    : `page-contents?filters[pageName][$eq]=${pageName}`;
+    ? `page-contents?filters[pageName][$eq]=${encodedPageName}&filters[sectionName][$eq]=${encodedSectionName}`
+    : `page-contents?filters[pageName][$eq]=${encodedPageName}`;
     
   const { data, loading, error } = useCMSData(endpoint, {}, [pageName, sectionName]);
   

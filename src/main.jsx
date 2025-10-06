@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 import "../styles/main.css";
-import "../public/style.css";
 import "../public/styles/animate.css";
 import "../public/styles/bootstrap.css";
 import "../public/styles/magnific-popup.css";

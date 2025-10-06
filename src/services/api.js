@@ -184,9 +184,13 @@ class ApiService {
   }
 
   async getPageContent(pageName, sectionName = null) {
-    let endpoint = `page-contents?filters[pageName][$eq]=${pageName}`;
+    // Properly encode query parameters to avoid URL parsing errors
+    const encodedPageName = encodeURIComponent(pageName);
+    const encodedSectionName = sectionName ? encodeURIComponent(sectionName) : null;
+    
+    let endpoint = `page-contents?filters[pageName][$eq]=${encodedPageName}`;
     if (sectionName) {
-      endpoint += `&filters[sectionName][$eq]=${sectionName}`;
+      endpoint += `&filters[sectionName][$eq]=${encodedSectionName}`;
     }
     return this.fetch(endpoint);
   }
