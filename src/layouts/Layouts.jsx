@@ -1,5 +1,6 @@
 import { Fragment, useEffect } from "react";
 import ImageView from "../components/ImageView";
+import ScrollDownButton from "../components/ScrollDownButton";
 import { scrollAnimation } from "../utils/utils";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -30,6 +31,7 @@ const Layouts = ({ children }) => {
   return (
     <Fragment>
       <ImageView />
+      <ScrollDownButton />
       <div className="bg">
         <Header />
         <div className="wrapper">{children}</div>

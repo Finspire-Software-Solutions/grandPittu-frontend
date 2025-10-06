@@ -181,7 +181,7 @@ const ContactForm = () => {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.message}
-                    style={{ borderColor: errors.message && touched.message ? '#dc3545' : '' }}
+                    style={{ borderColor: errors.message && touched.message ? '#dc3545' : '' , minHeight: '80px', height: '80px', resize: 'vertical' }}
                   />
                   {errors.message && touched.message && (
                     <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
