@@ -135,6 +135,37 @@ const PhotoGalleryIsotope = ({ images = [] }) => {
           </h3>
         </div>
         
+        {/* <div className="gp-filter align-center">
+          <a
+            href="#"
+            className="active"
+            data-href="*"
+            onClick={handleFilterKeyChange("*")}
+          >
+            All
+          </a>
+          <a
+            href="#"
+            data-href="fast-food"
+            onClick={handleFilterKeyChange("fast-food")}
+          >
+            Fast Food
+          </a>
+          <a
+            href="#"
+            data-href="dinner-menu"
+            onClick={handleFilterKeyChange("dinner-menu")}
+          >
+            Dinner Menu
+          </a>
+          <a
+            href="#"
+            data-href="beverages"
+            onClick={handleFilterKeyChange("beverages")}
+          >
+            Beverages
+          </a>
+        </div> */}
         
         <div className="gp-gallery-items row" ref={containerRef}>
           {galleryData.map((item) => (
@@ -146,4 +177,4 @@ const PhotoGalleryIsotope = ({ images = [] }) => {
   );
 };
 
-export default PhotoGalleryIsotope;
+export default RoofGalleryIsotope;

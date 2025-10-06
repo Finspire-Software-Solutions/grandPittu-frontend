@@ -12,115 +12,71 @@ const Contacts = () => {
 
   return (
     <Layouts>
-      {/* Section Started Inner */}
-      <section className="section gp-started-inner">
-        <div className="gp-parallax-bg js-parallax" style={{ backgroundImage: "url(images/contact_inner_bg.jpg)" }} />
+      {/* Section 1: Contact Info & Map Side by Side */}
+      <section className="section gp-contacts-main">
         <div className="container">
-          <h1 className="gp-h-title text-anim-1 scroll-animate" data-splitting="chars" data-animate="active">
-            Contact Us
-          </h1>
-        </div>
-      </section>
-
-      {/* Section Contacts Info */}
-      <section className="section gp-contacts-info">
-        <div className="container">
-          <div className="gp-contacts-items row">
-            <div className="col-lg-4 align-center">
-              <div className="gp-contacts-item element-anim-1 scroll-animate" data-animate="active">
-                <div className="image">
-                  {/*<img src="images/contact_icon1.webp" alt="" />*/}
-                  <i className="las la-map-marked-alt" />
+          <div className="row align-items-stretch">
+            <div className="col-lg-6 col-md-12 mb-4 mb-lg-0">
+              <div className="gp-contacts-items">
+                <div className="gp-contacts-item element-anim-1 scroll-animate" data-animate="active">
+                  <div className="image">
+                    <i className="las la-map-marked-alt" />
+                  </div>
+                  <div className="desc">
+                    <h5 className="name">Address</h5>
+                    <ul>
+                      <li>{globalData?.attributes?.contactAddress || "Colombo, Sri Lanka"}</li>
+                    </ul>
+                  </div>
                 </div>
-                <div className="desc">
-                  <h5 className="name">Address</h5>
-                  <ul>
-                    <li>{globalData?.attributes?.contactAddress || "Colombo, Sri Lanka"}</li>
-                  </ul>
+                <div className="gp-contacts-item element-anim-1 scroll-animate" data-animate="active">
+                  <div className="image">
+                    <i className="las la-envelope-open-text" />
+                  </div>
+                  <div className="desc">
+                    <h5 className="name">Email Address</h5>
+                    <ul>
+                      <li>
+                        <a href={`mailto:${globalData?.attributes?.contactEmail}`}>
+                          {globalData?.attributes?.contactEmail || "info@grandpittu.com"}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="gp-contacts-item element-anim-1 scroll-animate" data-animate="active">
+                  <div className="image">
+                    <i className="las la-headset" />
+                  </div>
+                  <div className="desc">
+                    <h5 className="name">Phone Number</h5>
+                    <ul>
+                      <li>
+                        <a href={`tel:${globalData?.attributes?.contactPhone}`}>
+                          {globalData?.attributes?.contactPhone || "+94 11 234 5678"}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-lg-4 align-center">
-              <div className="gp-contacts-item element-anim-1 scroll-animate" data-animate="active">
-                <div className="image">
-                  {/*<img src="images/contact_icon2.webp" alt="" />*/}
-                  <i className="las la-envelope-open-text" />
-                </div>
-                <div className="desc">
-                  <h5 className="name">Email Address</h5>
-                  <ul>
-                    <li>
-                      <a href={`mailto:${globalData?.attributes?.contactEmail}`}>
-                        {globalData?.attributes?.contactEmail || "info@grandpittu.com"}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 align-center">
-              <div className="gp-contacts-item element-anim-1 scroll-animate" data-animate="active">
-                <div className="image">
-                  {/*<img src="images/contact_icon3.webp" alt="" />*/}
-                  <i className="las la-headset" />
-                </div>
-                <div className="desc">
-                  <h5 className="name">Phone Number</h5>
-                  <ul>
-                    <li>
-                      <a href={`tel:${globalData?.attributes?.contactPhone}`}>
-                        {globalData?.attributes?.contactPhone || "+94 11 234 5678"}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+            <div className="col-lg-6 col-md-12">
+              <div className="gp-map-container h-100">
+                <iframe
+                  src={globalData?.attributes?.googleMapEmbedUrl || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.256610365696!2d79.86058539999999!3d6.859818000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bd68bd99b05%3A0xcc2e80ef6ebedb7f!2sGrand%20Pittu!5e0!3m2!1sen!2slk!4v1759045248735!5m2!1sen!2slk"}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Grandpittu Restaurant Location"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Section Business Hours */}
-      {globalData?.attributes?.businessHours && (
-        <section className="section gp-business-hours">
-          <div className="container">
-            <CMSTitles 
-              title="Business Hours"
-              alignment="align-center"
-            />
-            <div className="gp-hours-grid">
-              {globalData.attributes.businessHours.map((hour, index) => (
-                <div key={index} className="gp-hour-item">
-                  <span className="day">{hour.day}</span>
-                  <span className="time">{hour.time}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Section Google Map */}
-      {globalData?.attributes?.mapEmbedUrl && (
-        <section className="section gp-map">
-          <div className="container-fluid">
-            <div className="gp-map-container">
-              <iframe
-                src={globalData.attributes.mapEmbedUrl}
-                width="100%"
-                height="400"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Grandpittu Restaurant Location"
-              />
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Section Contacts Form */}
+      {/* Section 2: Contact Form */}
       <section className="section gp-contacts-form">
         <div className="container">
           <div className="gp-reservation-form element-anim-1 scroll-animate" data-animate="active">
@@ -129,14 +85,10 @@ const Contacts = () => {
               title="Send Us Message"
               alignment="align-center"
             />
-            <ContactForm />
+            <ContactForm  />
           </div>
         </div>
       </section>
-
-      {/* Section Insta Carousel */}
-      {/* <InstaCarousel /> */}
-      
     </Layouts>
   );
 };

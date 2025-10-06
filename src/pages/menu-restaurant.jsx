@@ -83,42 +83,6 @@ const MenuRestaurant = () => {
 
   return (
     <Layouts>
-      {/* Section Started Inner */}
-      <section className="section gp-started-inner">
-        <div className="gp-parallax-bg js-parallax" style={{ backgroundImage: "url(images/menu_rest_inner_bg.jpg)" }} />
-        <div className="container">
-          <div className="gp-titles align-center">
-            <div
-              className="gp-subtitle element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              Sri Lankan Tamil Tradition
-            </div>
-            <h3
-              className="gp-title element-anim-1 scroll-animate"
-              data-animate="active"
-            >
-              Grandpittu Traditional Lunch Menu
-            </h3>
-          </div>
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div className="gp-menu-items-2">
-               <img src="public/images/menu/menu1.jpg" alt="Dinner Menu" />
-              </div>
-              
-            </div>
-
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div className="gp-menu-items-2">
-               <img src="public/images/menu/menu2.jpg" alt="Dinner Menu" />
-              </div>
-              
-            </div>
-            
-          </div>
-        </div>
-      </section>
 
       {/* Section Menu Cards */}
       <section className="section gp-menu">
@@ -128,31 +92,11 @@ const MenuRestaurant = () => {
             title="Discover Our Complete Menu Collection"
             alignment="align-center"
           />
-
-          {/* Category Filter */}
-          <div className="gp-menu-filters align-center">
-            <button 
-              className={`gp-filter-btn ${activeCategory === 'all' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('all')}
-            >
-              All Menus
-            </button>
-            {categories.map((category, index) => (
-              <button 
-                key={index}
-                className={`gp-filter-btn ${activeCategory === category ? 'active' : ''}`}
-                onClick={() => setActiveCategory(category)}
-              >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
-              </button>
-            ))}
-          </div>
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div className="gp-menu-items-2">
-               <img src="public/images/menu/menu3.jpg" alt="Dinner Menu" />
-              </div>
-            </div>
+          <div className="align-center" style={{ margin: "2rem 0" }}>
+            <a href="/menu-card.pdf" download className="gp-btn">
+              <span>Download Menu Card (PDF)</span>
+              <i className="fas fa-download" />
+            </a>
           </div>
         </div>
       </section>
