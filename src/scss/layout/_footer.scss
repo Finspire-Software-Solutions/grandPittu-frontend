@@ -1,0 +1,159 @@
+/**
+* Footer
+**/
+
+.gp-footer {
+  padding: 70px 0 0 0;
+  background: #040707;
+ 
+	
+  h5 {
+    margin: 0 0 20px 0;
+  }
+}
+
+// Footer specific spinner-logo styles
+.gp-footer .spinner-logo {
+	position: relative;
+	width: 120px;
+	height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0;
+	margin: 0 0 30px 0;
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		width: auto;
+		height: auto;
+		object-fit: contain;
+		display: block;
+	}
+}
+
+.gp-f-hours {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 15px;
+      color: #fff;
+      &:last-child {
+        margin-bottom: 0;
+        &:before {
+          display: none;
+        }
+      }
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 13px;
+        width: 5px;
+        height: 5px;
+        background: #fff;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+      }
+      em {
+        display: block;
+        color: $base_link_color;
+        font-style: normal;
+      }
+      strong {
+        font-family: $base_font3_family;
+        color: #ff8a00;
+      }
+    }
+  }
+}
+
+.gp-f-contact {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 50px;
+      color: #fff;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      i {
+        position: absolute;
+        left: 0;
+        top: 5px;
+        font-size: 40px;
+        color: $base_link_color;
+      }
+      em {
+        display: block;
+        color: $base_link_color;
+        font-style: normal;
+        font-weight: 600;
+        
+      }
+    }
+  }
+}
+
+.gp-f-gallery {
+  ul {
+    margin: 0 -4px;
+    padding: 0;
+    list-style: none;
+    font-size: 0;
+    li {
+      padding: 4px;
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      width: 33.333%;
+      img {
+        position: relative;
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 9px;
+      }
+    }
+  }
+}
+
+.gp-copyright {
+  margin-top: 70px;
+  padding: 30px 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+button.mfp-close:before, button.mfp-arrow:before {
+  display: none;
+}
+
+@media screen and (max-width: 992px) {
+	.gp-f-hours {
+		margin-bottom: 50px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.gp-footer .spinner-logo, .gp-f-hours, .gp-f-contact {
+		margin-bottom: 50px;
+	}
+	.gp-footer .spinner-logo {
+		width: 100px;
+		height: 100px;
+	}
+  .gp-copyright {
+    margin-top: 50px;
+    font-size: 14px;
+  }
+}
