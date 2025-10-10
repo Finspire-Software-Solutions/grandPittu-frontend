@@ -29,8 +29,7 @@ const Contacts = () => {
             <div className="col-lg-4 align-center">
               <div className="gp-contacts-item element-anim-1 scroll-animate" data-animate="active">
                 <div className="image">
-                  {/*<img src="images/contact_icon1.webp" alt="" />*/}
-                  <i className="las la-map-marked-alt" />
+                  <img src="images/contact_icon1.png" alt="Location" />
                 </div>
                 <div className="desc">
                   <h5 className="name">Address</h5>
@@ -43,8 +42,7 @@ const Contacts = () => {
             <div className="col-lg-4 align-center">
               <div className="gp-contacts-item element-anim-1 scroll-animate" data-animate="active">
                 <div className="image">
-                  {/*<img src="images/contact_icon2.webp" alt="" />*/}
-                  <i className="las la-envelope-open-text" />
+                  <img src="images/contact_icon2.png" alt="Email" />
                 </div>
                 <div className="desc">
                   <h5 className="name">Email Address</h5>
@@ -61,8 +59,7 @@ const Contacts = () => {
             <div className="col-lg-4 align-center">
               <div className="gp-contacts-item element-anim-1 scroll-animate" data-animate="active">
                 <div className="image">
-                  {/*<img src="images/contact_icon3.webp" alt="" />*/}
-                  <i className="las la-headset" />
+                  <img src="images/contact_icon3.png" alt="Phone" />
                 </div>
                 <div className="desc">
                   <h5 className="name">Phone Number</h5>
@@ -135,8 +132,7 @@ const Contacts = () => {
       </section>
 
       {/* Section Insta Carousel */}
-      {/* <InstaCarousel /> */}
-      
+      <InstaCarousel />
     </Layouts>
   );
 };

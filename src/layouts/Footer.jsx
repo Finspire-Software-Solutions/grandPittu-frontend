@@ -66,19 +66,57 @@ const Footer = () => {
               className="gp-f-gallery element-anim-1 scroll-animate"
               data-animate="active"
             >
-              <h5>Find Us Here</h5>
-              
-                <iframe
-                  src={ "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.256610365696!2d79.86058539999999!3d6.859818000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25bd68bd99b05%3A0xcc2e80ef6ebedb7f!2sGrand%20Pittu!5e0!3m2!1sen!2slk!4v1759045248735!5m2!1sen!2slk"}
-                  width="100%"
-                  height="100%"
-                  style={{ borderRadius: '5px' }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Grandpittu Restaurant Location"
-                />
-              
+              <h5>Gallery</h5>
+              <ul>
+                <li>
+                  <a
+                    href="images/grid_gal1.webp"
+                    className="gp-image-hover has-popup-image"
+                  >
+                    <img src="images/grid_gal1.webp" alt="image" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="images/grid_gal2.webp"
+                    className="gp-image-hover has-popup-image"
+                  >
+                    <img src="images/grid_gal2.webp" alt="image" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="images/grid_gal3.webp"
+                    className="gp-image-hover has-popup-image"
+                  >
+                    <img src="images/grid_gal3.webp" alt="image" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="images/grid_gal4.webp"
+                    className="gp-image-hover has-popup-image"
+                  >
+                    <img src="images/grid_gal4.webp" alt="image" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="images/grid_gal5.webp"
+                    className="gp-image-hover has-popup-image"
+                  >
+                    <img src="images/grid_gal5.webp" alt="image" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="images/grid_gal6.webp"
+                    className="gp-image-hover has-popup-image"
+                  >
+                    <img src="images/grid_gal1.webp" alt="image" />
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

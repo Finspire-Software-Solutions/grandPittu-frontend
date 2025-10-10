@@ -15,6 +15,20 @@ const About = () => {
 
   return (
     <Layouts>
+      {/* Section Started Inner */}
+      <section className="section gp-started-inner">
+        <div 
+          className="gp-parallax-bg js-parallax" 
+          style={{ 
+            backgroundImage: `url(${aboutContent?.attributes?.backgroundImage?.url || "images/about_inner_bg.jpg"})`
+          }} 
+        />
+        <div className="container">
+          <h1 className="gp-h-title text-anim-1 scroll-animate" data-splitting="chars" data-animate="active">
+            About Us
+          </h1>
+        </div>
+      </section>
 
       {/* Section About */}
       <section className="section gp-about">
@@ -129,7 +143,69 @@ const About = () => {
           />
         </div>
       </section>
-    
+      {/* Section Services-2 */}
+      {/* <section className="section gp-services">
+        <div className="container">
+          <div className="gp-services-items-2 row">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+              <div
+                className="gp-services-item-2 element-anim-1 scroll-animate"
+                data-animate="active"
+              >
+                <div className="image">
+                  <img src="images/service_icon1.webp" alt="image" />
+                </div>
+                <div className="desc">
+                  <h5 className="name">Birthday Cakes</h5>
+                  <div className="subname">Sed ut perspiciatis unde</div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+              <div
+                className="gp-services-item-2 element-anim-1 scroll-animate"
+                data-animate="active"
+              >
+                <div className="image">
+                  <img src="images/service_icon2.webp" alt="image" />
+                </div>
+                <div className="desc">
+                  <h5 className="name">Fresh Foods</h5>
+                  <div className="subname">Sed ut perspiciatis unde</div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+              <div
+                className="gp-services-item-2 element-anim-1 scroll-animate"
+                data-animate="active"
+              >
+                <div className="image">
+                  <img src="images/service_icon3.webp" alt="image" />
+                </div>
+                <div className="desc">
+                  <h5 className="name">Skills Chefs</h5>
+                  <div className="subname">Sed ut perspiciatis unde</div>
+                </div>
+              </div>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+              <div
+                className="gp-services-item-2 element-anim-1 scroll-animate"
+                data-animate="active"
+              >
+                <div className="image">
+                  <img src="images/service_icon4.webp" alt="image" />
+                </div>
+                <div className="desc">
+                  <h5 className="name">Organic Juice</h5>
+                  <div className="subname">Sed ut perspiciatis unde</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> */}
      
       {/* Section Testimonials Carousel */}
       <TestimonialsCarousel />

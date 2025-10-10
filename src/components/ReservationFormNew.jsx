@@ -1,11 +1,10 @@
 import { Formik } from 'formik';
 import { useState } from 'react';
 import apiService from '../services/apiService';
-import Toast from './Toast';
 
-const ContactForm = () => {
+const ReservationForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [toast, setToast] = useState({ isVisible: false, message: '', type: '' });
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   // Validation function
   const validateForm = (values) => {
@@ -25,12 +24,16 @@ const ContactForm = () => {
       errors.tel = 'Required';
     }
     
-    if (!values.subject) {
-      errors.subject = 'Required';
+    if (!values.date) {
+      errors.date = 'Required';
     }
     
-    if (!values.message) {
-      errors.message = 'Required';
+    if (!values.time) {
+      errors.time = 'Required';
+    }
+    
+    if (!values.persons || values.persons < 1) {
+      errors.persons = 'At least 1 person required';
     }
     
     return errors;
@@ -39,25 +42,28 @@ const ContactForm = () => {
   // Submit handler
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     setIsSubmitting(true);
-    setToast({ isVisible: false, message: '', type: '' });
+    setSubmitStatus({ type: '', message: '' });
 
     try {
-      const response = await apiService.createContact(values);
+      const response = await apiService.createReservation(values);
       
-      setToast({
-        isVisible: true,
+      setSubmitStatus({
         type: 'success',
-        message: 'Thank you for your message! We have received your inquiry and will get back to you soon.'
+        message: 'Thank you! Your reservation request has been submitted successfully. We will confirm your booking shortly.'
       });
       
       resetForm();
       
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus({ type: '', message: '' });
+      }, 5000);
+      
     } catch (error) {
-      console.error('Contact submission error:', error);
-      setToast({
-        isVisible: true,
+      console.error('Reservation submission error:', error);
+      setSubmitStatus({
         type: 'error',
-        message: error.message || 'Sorry, there was an error sending your message. Please try again or contact us directly.'
+        message: error.message || 'Sorry, there was an error submitting your reservation. Please try again or contact us directly.'
       });
     } finally {
       setIsSubmitting(false);
@@ -65,20 +71,10 @@ const ContactForm = () => {
     }
   };
 
-  const handleToastClose = () => {
-    setToast({ isVisible: false, message: '', type: '' });
-  };
-  
   return (
     <>
-      <Toast
-        message={toast.message}
-        type={toast.type}
-        isVisible={toast.isVisible}
-        onClose={handleToastClose}
-      />
       <Formik
-        initialValues={{ email: '', name: '', tel: '', subject: '', message: '' }}
+        initialValues={{ email: '', name: '', tel: '', date: '', time: '', persons: '', message: '' }}
         validate={validateForm}
         onSubmit={handleSubmit}
       >
@@ -92,13 +88,21 @@ const ContactForm = () => {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit} id="contactForm">
+            
+            {/* Status Message */}
+            {submitStatus.message && (
+              <div className={`alert ${submitStatus.type === 'success' ? 'alert-success' : 'alert-danger'}`} style={{ marginBottom: '20px', textAlign: 'center' }}>
+                <p>{submitStatus.message}</p>
+              </div>
+            )}
+
             <div className="row">
-              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div className="gp-field">
-                  <input 
+                  <input
                     type="text" 
+                    placeholder="Full Name"
                     name="name" 
-                    placeholder="Full Name" 
                     required="required" 
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -113,13 +117,13 @@ const ContactForm = () => {
                   )}
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div className="gp-field">
                   <input
-                    type="email"
-                    name="email"
+                    type="email" 
                     placeholder="Email Address"
-                    required="required" 
+                    name="email"
+                    required="required"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
@@ -133,13 +137,13 @@ const ContactForm = () => {
                   )}
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div className="gp-field">
                   <input 
                     type="tel" 
                     name="tel" 
-                    placeholder="Phone Number" 
-                    required="required" 
+                    placeholder="Phone Number"
+                    required="required"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.tel}
@@ -153,21 +157,61 @@ const ContactForm = () => {
                   )}
                 </div>
               </div>
-              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div className="gp-field">
                   <input 
-                    type="text" 
-                    name="subject" 
-                    placeholder="Subject" 
-                    required="required" 
+                    type="number" 
+                    name="persons" 
+                    placeholder="Number of Persons"
+                    required="required"
+                    min="1"
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    value={values.subject}
-                    style={{ borderColor: errors.subject && touched.subject ? '#dc3545' : '' }}
+                    value={values.persons}
+                    style={{ borderColor: errors.persons && touched.persons ? '#dc3545' : '' }}
                   />
-                  {errors.subject && touched.subject && (
+                  <i className="fas fa-users" />
+                  {errors.persons && touched.persons && (
                     <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
-                      {errors.subject}
+                      {errors.persons}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div className="gp-field">
+                  <input 
+                    type="date" 
+                    name="date" 
+                    placeholder="Date"
+                    required="required"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.date}
+                    style={{ borderColor: errors.date && touched.date ? '#dc3545' : '' }}
+                  />
+                  {errors.date && touched.date && (
+                    <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
+                      {errors.date}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div className="gp-field">
+                  <input 
+                    type="time" 
+                    name="time" 
+                    required="required"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.time}
+                    style={{ borderColor: errors.time && touched.time ? '#dc3545' : '' }}
+                  />
+                  <i className="far fa-clock" />
+                  {errors.time && touched.time && (
+                    <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
+                      {errors.time}
                     </div>
                   )}
                 </div>
@@ -176,18 +220,11 @@ const ContactForm = () => {
                 <div className="gp-field">
                   <textarea
                     name="message"
-                    placeholder="Message"
-                    required="required" 
+                    placeholder="Special requests or dietary requirements (optional)"
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.message}
-                    style={{ borderColor: errors.message && touched.message ? '#dc3545' : '' }}
                   />
-                  {errors.message && touched.message && (
-                    <div className="error-text" style={{ color: '#dc3545', fontSize: '12px', marginTop: '5px' }}>
-                      {errors.message}
-                    </div>
-                  )}
                 </div>
               </div>
               <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -197,18 +234,17 @@ const ContactForm = () => {
                     className="gp-btn"
                     disabled={isSubmitting}
                   >
-                    <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                    <span>{isSubmitting ? 'Booking...' : 'Book Table'}</span>
                     <i className="fas fa-chevron-right" />
                   </button>
                 </div>
               </div>
             </div>
-
-        </form>
+          </form>
         )}
       </Formik>
     </>
   );
 };
 
-export default ContactForm;
+export default ReservationForm;
