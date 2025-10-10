@@ -36,23 +36,20 @@ const PhotoGalleryIsotope = ({ images = [] }) => {
   const [filterKey, setFilterKey] = useState("*");
   const [isotopeReady, setIsotopeReady] = useState(false);
 
-  // Use provided images prop or fallback to default gallery data
-  const galleryData = useMemo(() => 
-    images.length > 0 ? images : [
-      { id: 1, category: "fast-food", image: "gallery (1).webp" },
-      { id: 2, category: "dinner-menu", image: "gallery (2).webp" },
-      { id: 3, category: "beverages", image: "gallery (3).webp" },
-      { id: 4, category: "fast-food", image: "gallery (4).webp" },
-      { id: 5, category: "dinner-menu", image: "gallery (5).webp" },
-      { id: 6, category: "beverages", image: "gallery (6).webp" },
-      { id: 7, category: "fast-food", image: "gallery (7).webp" },
-      { id: 8, category: "dinner-menu", image: "gallery (8).webp" },
-      { id: 9, category: "beverages", image: "gallery (9).webp" },
-      { id: 10, category: "fast-food", image: "gallery (10).webp" },
-      { id: 11, category: "dinner-menu", image: "gallery (11).webp" },
-    ], 
-    [images]
-  );
+  // Memoize gallery data to prevent unnecessary re-renders
+  const galleryData = useMemo(() => [
+    { id: 1, category: "fast-food", image: "gallery (1).webp" },
+    { id: 2, category: "dinner-menu", image: "gallery (2).webp" },
+    { id: 3, category: "beverages", image: "gallery (3).webp" },
+    { id: 4, category: "fast-food", image: "gallery (4).webp" },
+    { id: 5, category: "dinner-menu", image: "gallery (5).webp" },
+    { id: 6, category: "beverages", image: "gallery (6).webp" },
+    { id: 7, category: "fast-food", image: "gallery (7).webp" },
+    { id: 8, category: "dinner-menu", image: "gallery (8).webp" },
+    { id: 9, category: "beverages", image: "gallery (9).webp" },
+    { id: 10, category: "fast-food", image: "gallery (10).webp" },
+    { id: 11, category: "dinner-menu", image: "gallery (11).webp" },
+  ], []);
 
   // Initialize Isotope with optimizations
   useEffect(() => {
@@ -138,6 +135,37 @@ const PhotoGalleryIsotope = ({ images = [] }) => {
           </h3>
         </div>
         
+        {/* <div className="gp-filter align-center">
+          <a
+            href="#"
+            className="active"
+            data-href="*"
+            onClick={handleFilterKeyChange("*")}
+          >
+            All
+          </a>
+          <a
+            href="#"
+            data-href="fast-food"
+            onClick={handleFilterKeyChange("fast-food")}
+          >
+            Fast Food
+          </a>
+          <a
+            href="#"
+            data-href="dinner-menu"
+            onClick={handleFilterKeyChange("dinner-menu")}
+          >
+            Dinner Menu
+          </a>
+          <a
+            href="#"
+            data-href="beverages"
+            onClick={handleFilterKeyChange("beverages")}
+          >
+            Beverages
+          </a>
+        </div> */}
         
         <div className="gp-gallery-items row" ref={containerRef}>
           {galleryData.map((item) => (

@@ -1,7 +1,7 @@
-import { CMSButton, CMSTitles, ErrorMessage, LoadingSpinner } from "@/components/cms/CMSComponents";
-import PhotoGalleryIsotope from "@/components/PhotoGalleryIsotope";
 import { useGalleryData, usePageContent } from "@/hooks/useCMSData";
+import { LoadingSpinner, ErrorMessage, CMSTitles, CMSButton } from "@/components/cms/CMSComponents";
 import Layouts from "@/layouts/Layouts";
+import PhotoGalleryIsotope from "@/components/PhotoGalleryIsotope";
 
 const Gallery = () => {
   const { galleryImages, loading: galleryLoading, error: galleryError } = useGalleryData();
@@ -27,7 +27,7 @@ const Gallery = () => {
           <div className="row">
             <div className="col-lg-8">
               <CMSTitles 
-                subtitle={ctaContent?.attributes?.subtitle || "Need a Table On Grandpittu?"}
+                subtitle={ctaContent?.attributes?.subtitle || "Need a Table On Coffee House"}
                 title={ctaContent?.attributes?.title || "Booking Table For Your & Family Members"}
               />
             </div>
