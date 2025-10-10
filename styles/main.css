@@ -1695,6 +1695,7 @@ button.mfp-close:before, button.mfp-arrow:before {
 
 .gp-text p {
   margin: 0;
+  text-align: justify;
 }
 
 .gp-image-hover {
@@ -5098,7 +5099,6 @@ small {
   top: 0;
   width: 100%;
   height: 100%;
-  background: #601013;
   opacity: 0;
   pointer-events: none;
   transition: all 0.7s cubic-bezier(0.3, 0, 0.3, 1);

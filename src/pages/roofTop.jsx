@@ -8,32 +8,32 @@ import Layouts from "@/layouts/Layouts";
 const rooftopImages = [
   {
     id: "rooftop-1",
-    image: "rooftop_view1.webp",
+    image: "rooftop (6).jpg",
     category: "rooftop"
   },
   {
     id: "rooftop-2", 
-    image: "rooftop_view2.webp",
+    image: "rooftop (1).jpg",
     category: "rooftop"
   },
   {
     id: "rooftop-3",
-    image: "rooftop_dining1.webp", 
+    image: "rooftop (2).jpg", 
     category: "rooftop"
   },
   {
     id: "rooftop-4",
-    image: "rooftop_dining2.webp",
+    image: "rooftop (3).jpg",
     category: "rooftop"
   },
   {
     id: "rooftop-5",
-    image: "rooftop_event1.webp",
+    image: "rooftop (4).jpg",
     category: "rooftop"
   },
   {
     id: "rooftop-6",
-    image: "rooftop_event2.webp",
+    image: "rooftop (5).jpg",
     category: "rooftop"
   }
 ];
@@ -62,10 +62,11 @@ const Rooftop = () => {
             memorable evenings.
           </p>
           <ul className="list-unstyled mb-4">
-            <li>🌇 Panoramic city views</li>
+            <li>🌇 Sea-view views</li>
             <li>🎶 Blend with nature vibe</li>
-            <li>🍸 Rooftop-exclusive menu & cocktails</li>
+            <li>🍸 Rooftop-exclusive menu</li>
             <li>✨ Elegant, cozy ambience</li>
+            <li>👑 VIP/private premium booking</li>
           </ul>
           <div className="gp-bts">
             <Link to="/contact" className="gp-btn">
@@ -107,73 +108,7 @@ const Rooftop = () => {
           </div>
         </div>
       </section>
-      {/* Section Brands */}
-      <div className="section gp-brands">
-        <div className="container">
-          <div className="gp-brands-items row">
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="gp-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand1.webp" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="gp-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand2.webp" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="gp-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand3.webp" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="gp-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand4.webp" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="gp-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand5.webp" alt="image" />
-                </div>
-              </div>
-            </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-              <div
-                className="gp-brands-item element-anim-1 scroll-animate"
-                data-animate="active"
-              >
-                <div className="image">
-                  <img src="images/brand6.webp" alt="image" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+     
     </Layouts>
   );
 };

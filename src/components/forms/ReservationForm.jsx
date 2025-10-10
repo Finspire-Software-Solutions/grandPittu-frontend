@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import { useState } from 'react';
-import apiService from '../services/apiService';
-import Toast from './Toast';
+import apiService from '../../services/apiService';
+import Toast from '../Toast';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -50,7 +50,7 @@ const ReservationForm = () => {
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       
-      if (selectedDate < today) {
+      if (selectedDate <= today) {
         errors.date = 'Please select a future date';
       }
       

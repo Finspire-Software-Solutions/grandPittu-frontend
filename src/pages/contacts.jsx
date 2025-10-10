@@ -1,7 +1,7 @@
 import { useGlobalData } from "@/hooks/useCMSData";
 import { LoadingSpinner, ErrorMessage, CMSTitles } from "@/components/cms/CMSComponents";
 import InstaCarousel from "@/components/sliders/InstaCarousel";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/forms/ContactForm";
 import Layouts from "@/layouts/Layouts";
 
 const Contacts = () => {

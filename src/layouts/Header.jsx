@@ -10,12 +10,29 @@ const Header = () => {
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
-    if (document.querySelector("header").className.includes("animated")) {
-      setTimeout(() => {
-        document.querySelector("header").classList.add("opened", "show");
-      }, 800);
+    const header = document.querySelector("header");
+    if (toggle) {
+      // A small delay to allow the 'animated' class to be applied for the animation
+      const openTimeout = setTimeout(() => {
+        header.classList.add("opened", "show");
+      }, 100);
+      return () => clearTimeout(openTimeout);
+    } else {
+      header.classList.remove("opened", "show");
     }
   }, [toggle]);
+
+  const handleMenuToggle = (e) => {
+    e.preventDefault();
+    const header = document.querySelector("header");
+    if (toggle) {
+      header.classList.remove("animated", "opened", "show");
+      setToggle(false);
+    } else {
+      header.classList.add("animated");
+      setToggle(true);
+    }
+  };
 
   const [activeMenu, setActiveMenu] = useState("");
   const activeMenuSet = (value) =>
@@ -71,6 +88,7 @@ const Header = () => {
                 <img src="images/logo.webp" alt="image" />
               </Link>
             </div>
+
           </div>
           <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 align-center">
             {/* main menu */}
@@ -97,23 +115,27 @@ const Header = () => {
                 <li>
                   <Link to="/contact">Contacts</Link>
                 </li>
-                
-                <Link className="gp-btn-spl" to="/experience">
-              <span>Experience</span>
-              </Link>
               
               </ul>
             </div>
-            
-              
-            
+
           </div>
           <div className="col-xs-12 col-sm-6 col-md-3 col-lg-3 align-right">
             {/* menu btn */}
             <a
-              to="#"
+              href="#"
               className={`gp-menu-btn ${toggle ? "active" : ""}`}
-              onClick={() => setToggle(!toggle)}
+              onClick={(e) => {
+                e.preventDefault();
+                const header = document.querySelector("header");
+                if (toggle) {
+                  header.classList.remove("animated", "opened", "show");
+                  setToggle(false);
+                } else {
+                  header.classList.add("animated");
+                  setToggle(true);
+                }
+              }}
             >
               <span />
             </a>
@@ -126,8 +148,7 @@ const Header = () => {
         </div>
       </div>
       {/* mobile navbar */}
-      <div className="gp-navbar-mobile">
-        <div className="gp-navbar-mobile-header">
+      <div className="gp-navbar-mobile-header">
           {/* mobile logo */}
           <div className="spinner-logo">
             <Link to="/">
@@ -136,7 +157,7 @@ const Header = () => {
           </div>
           
           {/* mobile book table button */}
-          <Link to="/reservation" className="gp-btn mobile-book-btn">
+          <Link to="/reservation" className="gp-btn ">
             <span>Book Table</span>
           </Link>
           
@@ -146,12 +167,20 @@ const Header = () => {
             className={`gp-menu-btn ${toggle ? "active" : ""}`}
             onClick={(e) => {
               e.preventDefault();
-              setToggle(!toggle);
+              const header = document.querySelector("header");
+              if (toggle) {
+                header.classList.remove("animated", "opened", "show");
+                setToggle(false);
+              } else {
+                header.classList.add("animated");
+                setToggle(true);
+              }
             }}
           >
             <span />
           </a>
         </div>
+      <div className="gp-navbar-mobile">
         
         {/* mobile menu */}
         <div className="gp-main-menu">

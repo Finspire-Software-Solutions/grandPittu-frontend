@@ -1,7 +1,7 @@
 import { Formik } from 'formik';
 import { useState } from 'react';
-import apiService from '../services/apiService';
-import Toast from './Toast';
+import apiService from '../../services/apiService';
+import Toast from '../Toast';
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);

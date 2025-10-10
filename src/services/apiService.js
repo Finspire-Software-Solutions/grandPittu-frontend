@@ -9,7 +9,7 @@ class APIService {
 
   getBaseURL() {
     const isDev = import.meta.env.DEV;
-    const devURL = '/api';
+    const devURL = config.API_BASE_URL;
     const prodURL = config.API_BASE_URL;
     
     console.log(`Environment: ${isDev ? 'development' : 'production'}`);

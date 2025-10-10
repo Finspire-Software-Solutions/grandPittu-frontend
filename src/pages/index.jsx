@@ -1,26 +1,25 @@
+import RooftopItem from "@/components/items/RooftopItem";
+import CategoryItem from "@/components/items/CategoryItem";
+import {
+  CMSButton,
+  CMSTitles,
+  LoadingSpinner
+} from "@/components/cms/CMSComponents";
+import MenuCard from "@/components/MenuCard";
+import TestimonialsCarousel from "@/components/sliders/TestimonialsCarousel";
+import VideoPlayer from "@/components/VideoPlayer";
 import {
   useGlobalData,
-  usePageContent,
   useMenuData,
+  usePageContent,
   useServicesData,
 } from "@/hooks/useCMSData";
-import {
-  LoadingSpinner,
-  CMSTitles,
-  CMSButton,
-  CMSContent,
-  CMSImage,
-} from "@/components/cms/CMSComponents";
-import TestimonialsCarousel from "@/components/sliders/TestimonialsCarousel";
-import CategoryItem from "@/components/CategoryItem";
-import MenuCard from "@/components/MenuCard";
 import Layouts from "@/layouts/Layouts";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import VideoPlayer from "@/components/VideoPlayer";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Index = () => {
   useGlobalData(); // Apply global styles
@@ -171,14 +170,7 @@ const Index = () => {
                   name="Chicken fiesta"
                 />
               </div>
-              <CMSButton
-                text={
-                  homeContent?.attributes?.categoryButtonText ||
-                  "explore more Category"
-                }
-                link="/menu-restaurant"
-                className="gp-btn element-anim-1 scroll-animate"
-              />
+             
             </div>
             <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 align-self-center">
               <div className="gp-titles">
@@ -195,6 +187,7 @@ const Index = () => {
                    Treat for your nostalgic cravings
                 </h3>
               </div>
+              
               <div
                 className="gp-text element-anim-1 scroll-animate"
                 data-animate="active"
@@ -205,6 +198,14 @@ const Index = () => {
                   generations.
                 </p>
               </div>
+               <CMSButton
+                text={
+                  homeContent?.attributes?.categoryButtonText ||
+                  "explore more Category"
+                }
+                link="/menu-restaurant"
+                className="gp-btn element-anim-1 scroll-animate"
+              />
               {/* <div
                 className="gp-text element-anim-1 scroll-animate"
                 data-animate="active"
@@ -227,7 +228,7 @@ const Index = () => {
       <section className="section gp-video">
         <div className="container">
           <VideoPlayer
-            videoBg={"images/video_bg.webp"}
+            videoBg={""}
             extraClass={"gp-image-hover"}
           />
         </div>
@@ -259,7 +260,7 @@ const Index = () => {
                 description="A hearty seafood stew with crab, prawns, fish, cuttlefish, palmyrah flour, and local greens. A true taste of Jaffna tradition."
               />
               <MenuCard
-                image="images/crab_curry.webp"
+                image="images/category1.webp"
                 alt="Jaffna Crab Curry"
                 title="Jaffna Crab Curry"
                 description="Spicy and aromatic crab cooked in roasted spices, coconut milk, and tamarind. Famous for its bold flavors."
@@ -279,13 +280,13 @@ const Index = () => {
                 description="Steamed cylinders of rice flour and coconut, served with curries or sweet accompaniments. A staple of Tamil tradition."
               />
               <MenuCard
-                image="images/fish_kulambu.webp"
+                image="images/category2.webp"
                 alt="Fish Kulambu"
                 title="Fish Kulambu"
                 description="A spicy fish curry with a Jaffna twist, featuring fresh fish simmered in a blend of local spices and tamarind."
               />
               <MenuCard
-                image="images/idiyappam.webp"
+                image="images/category3.webp"
                 alt="Idiyappam"
                 title="Idiyappam"
                 description="Soft string hoppers made from rice flour, perfect with coconut milk or spicy curries. A breakfast favorite in Jaffna homes."
@@ -339,25 +340,7 @@ const Index = () => {
                   experience the true essence of Tamil culture in every bite.
                 </p>
               </div>
-              {/* <div className="gp-choose-list">
-                <ul>
-                  <li
-                    className="element-anim-1 scroll-animate"
-                    data-animate="active"
-                  >
-                    <div className="icon">
-                      <img src="images/choose_icon2.webp" alt="image" />
-                    </div>
-                    <div className="desc">
-                      <h5 className="name">100% ISO Certification</h5>
-                      <div className="subname">
-                        Sed ut perspiciatis unde omnis iste natus error
-                        voluptate accusantium doloremque
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div> */}
+              
               <Link
                 href="about"
                 className="gp-btn element-anim-1 scroll-animate"
@@ -452,28 +435,64 @@ const Index = () => {
 
       {/* Section CTA */}
       <section
-        className="section gp-cta gp-parallax"
-        style={{ backgroundImage: "url(images/cta_bg.webp)" }}
+        className="section gp-cta gp-category"
       >
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
-              <CMSTitles
-                subtitle={
-                  ctaContent?.attributes?.subtitle ||
-                  "Need a Table On Grandpittu"
-                }
-                title={
-                  ctaContent?.attributes?.title ||
-                  "Booking Table For Your & Family Members"
-                }
-                className="gp-titles"
-              />
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+              <div
+                className="gp-category-items element-anim-1 scroll-animate"
+                data-animate="active"
+              >
+                <RooftopItem
+                  image="images/gallery/rooftop (1).jpg"
+                  alt=""
+                  name=""
+                />
+                <RooftopItem
+                  image="images/gallery/rooftop (2).jpg"
+                  alt=""
+                  name=""
+                />
+                <RooftopItem
+                  image="images/gallery/rooftop (3).jpg"
+                  alt="Seafood Platter"
+                  name="Seafood Platter"
+                />
+                <RooftopItem
+                  image="images/gallery/rooftop (4).jpg"
+                  alt="Chicken fiesta"
+                  name="Chicken fiesta"
+                />
+              </div>
             </div>
-            <div className="col-lg-4 align-self-center align-right">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 align-self-center">
+              <div className="gp-titles">
+                <div
+                  className="gp-subtitle element-anim-1 scroll-animate"
+                  data-animate="active"
+                >
+                  {ctaContent?.attributes?.subtitle || "Experience the Sky"}
+                </div>
+                <h3
+                  className="gp-title element-anim-1 scroll-animate"
+                  data-animate="active"
+                >
+                  {ctaContent?.attributes?.title || "Pittu Rooftop Lounge"}
+                </h3>
+              </div>
+              
+              <div
+                className="gp-text element-anim-1 scroll-animate"
+                data-animate="active"
+              >
+                <p>
+                  {ctaContent?.attributes?.description || "Elevate your dining experience with breathtaking city views, signature cocktails, and live music at our exclusive rooftop lounge."}
+                </p>
+              </div>
               <CMSButton
-                text={ctaContent?.attributes?.buttonText || "booking table"}
-                link="/reservation"
+                text={ctaContent?.attributes?.buttonText || "Experience Here"}
+                link="/experience"
                 className="gp-btn element-anim-1 scroll-animate"
               />
             </div>

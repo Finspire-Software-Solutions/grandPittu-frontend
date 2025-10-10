@@ -40,7 +40,7 @@
 			opacity: 1;
 			visibility: visible;
 			pointer-events: auto;
-			z-index: 2;
+			z-index: 100;
 			&:before {
 				-webkit-animation: nav-mobile-open 0.75s cubic-bezier(0.3, 0, 0.3, 1) forwards;
 				animation: nav-mobile-open 0.75s cubic-bezier(0.3, 0, 0.3, 1) forwards;
@@ -387,7 +387,7 @@ img {
 		width: 100%;
 		padding: 20px 30px;
 		background: #8b181c;
-		z-index: 99;
+		z-index: 101;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -512,6 +512,21 @@ img {
 	}
 }
 
+.gp-header.show .gp-navbar-mobile-header {
+  .gp-menu-btn {
+    display: block;
+  }
+}
+
+.gp-navbar-mobile-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 101;
+	display: none; // Initially hidden
+}
+
 @keyframes nav-mobile-open {
 	0% {
 		-webkit-transform: translate3d(0, -100%, 0) skew(-10deg, -10deg);
@@ -567,11 +582,25 @@ img {
 	}
 }
 
+// Fix navbar wrapping between 1024px and 1094px
+@media screen and (min-width: 1025px) and (max-width: 1094px) {
+	.gp-main-menu ul li {
+		margin-left: 8px;
+		margin-right: 8px;
+		a {
+			font-size: 13px;
+		}
+	}
+}
+
 @media screen and (max-width: 1024px) {
 	.gp-header {
 		position: fixed;
 	}
 	.gp-topline {
+		display: none;
+	}
+	.gp-navbar {
 		display: none;
 	}
 	.gp-main-menu {
@@ -603,4 +632,46 @@ img {
 	.gp-navbar {
 		padding: 8px 30px;
 	}
+}
+
+.gp-navbar-mobile-header {
+	position: relative;
+	height: 90px;
+	display: none;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 15px;
+	.spinner-logo {
+		img {
+			max-width: 60px;
+		}
+	}
+}
+
+.gp-btn.mobile-book-btn {
+	display: none;
+	vertical-align: middle;
+}
+
+
+@media (max-width: 1024px) {
+  .gp-header .gp-navbar {
+    display: none;
+  }
+
+  .gp-navbar-mobile-header {
+    display: flex; // Becomes a flex container on mobile
+    background: #8b181c; // Restoring the background color
+  }
+
+  .gp-btn.mobile-book-btn {
+    display: inline-block;
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 12px;
+    margin-left: 0;
+    margin-right: 15px;
+    vertical-align: middle;
+  }
 }
